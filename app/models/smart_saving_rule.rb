@@ -1,0 +1,2 @@
+class SmartSavingRule < ApplicationRecord
+end

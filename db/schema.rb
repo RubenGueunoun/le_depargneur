@@ -10,9 +10,64 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 0) do
+ActiveRecord::Schema.define(version: 2018_12_26_173934) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
+  create_table "cagnottes", force: :cascade do |t|
+    t.datetime "date"
+    t.integer "montant"
+    t.string "objectif"
+    t.bigint "user_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["user_id"], name: "index_cagnottes_on_user_id"
+  end
+
+  create_table "smart_saving_rules", force: :cascade do |t|
+    t.string "nom"
+    t.string "type"
+    t.string "mecanisme"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "smart_saving_rules_users", id: false, force: :cascade do |t|
+    t.bigint "user_id", null: false
+    t.bigint "smart_saving_rule_id", null: false
+  end
+
+  create_table "transactions", force: :cascade do |t|
+    t.boolean "retrait"
+    t.integer "montant"
+    t.boolean "automatique"
+    t.bigint "cagnotte_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["cagnotte_id"], name: "index_transactions_on_cagnotte_id"
+  end
+
+  create_table "users", force: :cascade do |t|
+    t.string "email", default: "", null: false
+    t.string "encrypted_password", default: "", null: false
+    t.string "reset_password_token"
+    t.datetime "reset_password_sent_at"
+    t.datetime "remember_created_at"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.string "nom"
+    t.string "prenom"
+    t.integer "messenger_id"
+    t.string "compte_bancaire"
+    t.string "rib"
+    t.string "sepa"
+    t.string "profil_depargneur"
+    t.string "budget"
+    t.index ["email"], name: "index_users_on_email", unique: true
+    t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
+  end
+
+  add_foreign_key "cagnottes", "users"
+  add_foreign_key "transactions", "cagnottes"
 end
