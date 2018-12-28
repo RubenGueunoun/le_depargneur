@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2018_12_28_181118) do
+ActiveRecord::Schema.define(version: 2018_12_28_190630) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -31,12 +31,13 @@ ActiveRecord::Schema.define(version: 2018_12_28_181118) do
     t.bigint "user_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.string "genre"
     t.index ["user_id"], name: "index_cagnottes_on_user_id"
   end
 
   create_table "compte_bancaires", force: :cascade do |t|
     t.string "nom_banque"
-    t.integer "numero_compte"
+    t.string "numero_compte"
     t.string "code_acces"
     t.string "sepa"
     t.string "rib"
@@ -100,12 +101,8 @@ ActiveRecord::Schema.define(version: 2018_12_28_181118) do
     t.datetime "updated_at", null: false
     t.string "nom"
     t.string "prenom"
-    t.integer "messenger_id"
-    t.string "compte_bancaire"
-    t.string "rib"
-    t.string "sepa"
+    t.bigint "messenger_id"
     t.string "profil_depargneur"
-    t.string "budget"
     t.index ["email"], name: "index_users_on_email", unique: true
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end
