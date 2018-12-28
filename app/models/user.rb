@@ -5,6 +5,8 @@ class User < ApplicationRecord
          :recoverable, :rememberable, :validatable
 
   has_many :cagnottes
+  has_many :compte_bancaires
+  has_many :budgets
   has_and_belongs_to_many :smart_saving_rules
 
   validates :messenger_id, uniqueness: true

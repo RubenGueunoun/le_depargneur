@@ -10,10 +10,19 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2018_12_26_173934) do
+ActiveRecord::Schema.define(version: 2018_12_28_181118) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
+
+  create_table "budgets", force: :cascade do |t|
+    t.datetime "date"
+    t.string "echeance"
+    t.bigint "user_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["user_id"], name: "index_budgets_on_user_id"
+  end
 
   create_table "cagnottes", force: :cascade do |t|
     t.datetime "date"
@@ -23,6 +32,39 @@ ActiveRecord::Schema.define(version: 2018_12_26_173934) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["user_id"], name: "index_cagnottes_on_user_id"
+  end
+
+  create_table "compte_bancaires", force: :cascade do |t|
+    t.string "nom_banque"
+    t.integer "numero_compte"
+    t.string "code_acces"
+    t.string "sepa"
+    t.string "rib"
+    t.integer "solde"
+    t.bigint "user_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["user_id"], name: "index_compte_bancaires_on_user_id"
+  end
+
+  create_table "operations", force: :cascade do |t|
+    t.datetime "date"
+    t.string "categorie"
+    t.string "libelle"
+    t.integer "montant"
+    t.bigint "compte_bancaire_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["compte_bancaire_id"], name: "index_operations_on_compte_bancaire_id"
+  end
+
+  create_table "poste_depenses", force: :cascade do |t|
+    t.string "categorie"
+    t.integer "montant"
+    t.bigint "budget_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["budget_id"], name: "index_poste_depenses_on_budget_id"
   end
 
   create_table "smart_saving_rules", force: :cascade do |t|
@@ -68,6 +110,10 @@ ActiveRecord::Schema.define(version: 2018_12_26_173934) do
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end
 
+  add_foreign_key "budgets", "users"
   add_foreign_key "cagnottes", "users"
+  add_foreign_key "compte_bancaires", "users"
+  add_foreign_key "operations", "compte_bancaires"
+  add_foreign_key "poste_depenses", "budgets"
   add_foreign_key "transactions", "cagnottes"
 end
