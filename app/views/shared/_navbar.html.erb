@@ -10,13 +10,6 @@
     <div class="navbar-wagon-right hidden-xs hidden-sm">
       <%= link_to 'Profile', edit_user_password_path, class: "navbar-wagon-item navbar-wagon-link" %>
       <%= link_to 'Log Out', destroy_user_session_path, method: :delete, class: "navbar-wagon-item navbar-wagon-link" %>
-
-      <!-- Profile picture with dropdown list -->
-      <div class="navbar-wagon-item">
-        <div class="dropdown">
-          <%= image_tag "photo.jpeg", class: "avatar dropdown-toggle", id: "avatar dropdown-toggle"  %>
-        </div>
-      </div>
     </div>
 
   <% else %>
