@@ -1,0 +1,31 @@
+<div class="navbar-wagon">
+  <!-- Logo -->
+  <div class="navbar-wagon-brand">
+    <%= image_tag "logo.png" %>
+  </div>
+
+  <% if user_signed_in? %>
+
+    <!-- Right Navigation -->
+    <div class="navbar-wagon-right hidden-xs hidden-sm">
+      <%= link_to 'Profile', edit_user_password_path, class: "navbar-wagon-item navbar-wagon-link" %>
+      <%= link_to 'Log Out', destroy_user_session_path, method: :delete, class: "navbar-wagon-item navbar-wagon-link" %>
+
+      <!-- Profile picture with dropdown list -->
+      <div class="navbar-wagon-item">
+        <div class="dropdown">
+          <%= image_tag "photo.jpeg", class: "avatar dropdown-toggle", id: "avatar dropdown-toggle"  %>
+        </div>
+      </div>
+    </div>
+
+  <% else %>
+
+    <!-- Right Navigation -->
+    <div class="navbar-wagon-right hidden-xs hidden-sm">
+      <%= link_to 'Sign Up', new_user_registration_path, class: "navbar-wagon-item navbar-wagon-link" %>
+      <%= link_to 'Log In', new_user_session_path, class: "navbar-wagon-item navbar-wagon-link" %>
+    </div>
+
+  <% end %>
+</div>
