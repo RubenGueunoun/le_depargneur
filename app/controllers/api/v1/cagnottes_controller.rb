@@ -18,7 +18,9 @@ class Api::V1::CagnottesController < Api::V1::BaseController
   end
 
   def create
-    @cagnotte = current_user.cagnottes.build(cagnotte_params)
+    @cagnotte = current_user.cagnottes.build(
+
+      )
     authorize @cagnotte
     if @cagnotte.save
       render :show
@@ -39,7 +41,7 @@ class Api::V1::CagnottesController < Api::V1::BaseController
   end
 
   def render_error
-    render json: { errors: @cagnotte.errors.full_messages },
+    render json: { messages: [{ text: @cagnotte.errors.full_messages }] },
       status: :unprocessable_entity
   end
 end

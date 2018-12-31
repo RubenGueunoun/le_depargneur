@@ -36,7 +36,8 @@ cb = CompteBancaire.create!(
   code_acces: '20820821',
   sepa: 'link',
   rib: 'link',
-  solde: 822
+  solde: 822,
+  rythme: 3
   )
 
 op1 = Operation.new(
