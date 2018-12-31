@@ -1,7 +1,6 @@
 source 'https://rubygems.org'
 ruby '2.4.4'
 
-gem "simple_token_authentication"
 gem 'devise'
 gem 'pundit'
 

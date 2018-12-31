@@ -2,7 +2,8 @@ class Api::V1::CagnottesController < Api::V1::BaseController
   before_action :set_cagnotte, only: [ :show, :update ]
 
   def index
-    @cagnottes = policy_scope(Cagnotte)
+    user = User.where(messenger_id: params[:messenger_id])
+    @cagnottes = policy_scope(Cagnotte).where(user: user)
   end
 
   def show
