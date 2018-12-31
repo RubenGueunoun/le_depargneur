@@ -41,6 +41,7 @@ class Api::V1::CagnottesController < Api::V1::BaseController
   end
 
   def render_error
-    render messages: [{ text: @cagnotte.errors.full_messages }]
+    render json: { errors: @cagnotte.errors.full_messages },
+      status: :unprocessable_entity
   end
 end
