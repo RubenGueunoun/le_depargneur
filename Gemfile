@@ -3,6 +3,7 @@ ruby '2.4.4'
 
 gem 'devise'
 gem 'pundit'
+gem "simple_token_authentication"
 
 gem 'bootsnap', require: false
 gem 'jbuilder', '~> 2.0'
