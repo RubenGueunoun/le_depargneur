@@ -4,6 +4,11 @@ class Api::V1::CagnottesController < Api::V1::BaseController
   def index
     user = User.where(messenger_id: params["messenger user id"])
     @cagnottes = policy_scope(Cagnotte).where(user: user)
+    @cb = CompteBancaire.where(user: user)
+    @montant = 0
+    @cagnottes.each do |cagnotte|
+      @montant = @montant + cagnotte.montant
+    end
   end
 
   def show

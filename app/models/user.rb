@@ -9,5 +9,5 @@ class User < ApplicationRecord
   has_many :budgets
   has_and_belongs_to_many :smart_saving_rules
 
-  #validates :messenger_id, uniqueness: true
+  # validates :messenger_id, uniqueness: true
 end

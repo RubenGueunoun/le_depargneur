@@ -5,7 +5,11 @@
 #end
 
 json.messages do
-  json.array! @cagnottes do |cagnotte|
-    json.text "Tu as depargne #{cagnotte.montant}"
+  json.array! @cb do |cb|
+    json.text "Solde: #{cb.solde}€
+    Rythme de dépense: #{cb.rythme}
+
+    Dépargne: #{@montant} €
+    "
   end
 end
