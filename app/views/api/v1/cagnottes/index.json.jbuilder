@@ -6,7 +6,7 @@
 
 json.messages do
   json.array! @cb do |cb|
-    json.text "Solde: #{cb.solde}€
+    json.text "Ton solde: #{cb.solde}€
     Rythme de dépense: #{cb.rythme}
 
     Dépargne: #{@montant} €
