@@ -14,11 +14,11 @@ json.messages do
               json.title "#{compte.solde}"
               json.image_url "http://rockets.chatfuel.com/assets/shirt.jpg"
               json.subtitle "Compte courant"
-              json.default_action do
-                json.type "web_url"
-                json.url "https://rockets.chatfuel.com/store"
-                json.messenger_extensions true
-              end
+#              json.default_action do
+#                json.type "web_url"
+#                json.url "https://rockets.chatfuel.com/store"
+#                json.messenger_extensions true
+#              end
               json.buttons do
                 json.array! [compte] do
                   json.type "web_url"
