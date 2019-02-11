@@ -8,9 +8,9 @@ json.messages do
         json.elements do
           json.array! @comptes do |compte|
             if compte.class == CompteBancaire
-              json.title "#{compte.solde}"
+              json.title "#{compte.solde} €"
               json.image_url "http://rockets.chatfuel.com/assets/shirt.jpg"
-              json.subtitle "Mis à jour #{compte.updated_at}"
+              json.subtitle "Mis à jour #{compte.updated_at.to_date}"
               json.default_action do
                 json.type "web_url"
                 json.url "https://peaceful-plateau-65677.herokuapp.com"
@@ -24,9 +24,9 @@ json.messages do
                 end
               end
             else
-              json.title "#{compte.montant}"
+              json.title "#{compte.montant} €"
               json.image_url "http://rockets.chatfuel.com/assets/shirt.jpg"
-              json.subtitle "Mis à jour #{compte.updated_at}"
+              json.subtitle "Mis à jour #{compte.updated_at.to_date}"
               json.default_action do
                 json.type "web_url"
                 json.url "https://peaceful-plateau-65677.herokuapp.com"
