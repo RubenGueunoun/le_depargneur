@@ -17,7 +17,7 @@ json.messages do
               json.default_action do
                 json.type "web_url"
                 json.url "https://rockets.chatfuel.com/store"
-                json.messenger_extensions true
+                json.messenger_extensions false
               end
 #              json.buttons do
 #                json.array! [compte] do
