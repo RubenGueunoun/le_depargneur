@@ -5,6 +5,7 @@ Rails.application.routes.draw do
   namespace :api, defaults: { format: :json } do
     namespace :v1 do
       resources :cagnottes, only: [ :index, :show, :update, :create ]
+      get 'relevedecomptes', to: 'chatfuels#relevedecomptes'
     end
   end
 end
