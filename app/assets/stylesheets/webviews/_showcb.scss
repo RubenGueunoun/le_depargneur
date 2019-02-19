@@ -1,0 +1,64 @@
+.webview-banner-show-cb {
+  width: 100vw;
+  height: 100px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: #405C83;
+  color: white;
+  h2 {
+    font-size: 24px;
+    padding-bottom: 10px;
+  }
+}
+
+.webview-show-cb-picto-box {
+  position: relative;
+}
+
+.webview-show-cb-picto {
+  position: absolute;
+  top: -25px;
+  left: 50%;
+  margin-left:-20px;
+  img {
+    height: 40px;
+  }
+}
+
+.webview-show-cb-liste-operations {
+  margin: 10px 20px;
+  margin-top: 30px;
+}
+
+.webview-show-cb-card {
+  margin: 10px 0px;
+}
+
+.webview-show-cb-info-ope h4 {
+  font-size: 16px;
+  font-weight: bold;
+}
+
+.webview-show-cb-info-ope p {
+  font-size: 12px;
+  color: #C9B8C6;
+}
+
+.webview-show-cb-montant-ope {
+  height: 71.5px;
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+  p {
+  font-size: 20px;
+  }
+}
+
+.webview-montant-vert {
+  color: #6ECB37;
+}
+
+.webview-montant-rouge {
+  color: #E40404;
+}

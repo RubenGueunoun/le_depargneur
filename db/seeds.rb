@@ -36,7 +36,7 @@ cb = CompteBancaire.create!(
   code_acces: '20820821',
   sepa: 'link',
   rib: 'link',
-  solde: 822,
+  solde: 822.33,
   rythme: 3
   )
 
@@ -45,7 +45,7 @@ op1 = Operation.new(
   date: '12/01/2018',
   categorie: 'Restaurant',
   libelle: 'La villa',
-  montant: 55,
+  montant: -55,
   )
 op1.save!
 
@@ -54,7 +54,7 @@ op2 = Operation.new(
   date: '10/01/2018',
   categorie: 'Restaurant',
   libelle: 'Villa Rocca',
-  montant: 23,
+  montant: -23.10,
   )
 op2.save!
 
@@ -63,7 +63,7 @@ op3 = Operation.new(
   date: '09/01/2018',
   categorie: 'Restaurant',
   libelle: 'Le petit Nice',
-  montant: 200,
+  montant: -200,
   )
 op3.save!
 
@@ -72,7 +72,7 @@ op4 = Operation.new(
   date: '23/01/2018',
   categorie: 'Restaurant',
   libelle: 'Otto',
-  montant: 43,
+  montant: -43.50,
   )
 op4.save!
 
@@ -81,7 +81,7 @@ op5 = Operation.new(
   date: '01/01/2018',
   categorie: 'Transport',
   libelle: 'Uber',
-  montant: 12,
+  montant: -12.37,
   )
 op5.save!
 
@@ -90,7 +90,7 @@ op6 = Operation.new(
   date: '14/01/2018',
   categorie: 'Transport',
   libelle: 'Uber',
-  montant: 9,
+  montant: -9.70,
   )
 op6.save!
 
@@ -99,16 +99,25 @@ op7 = Operation.new(
   date: '29/01/2018',
   categorie: 'Transport',
   libelle: 'SNCF',
-  montant: 80,
+  montant: -79.99,
   )
 op7.save!
+
+op11 = Operation.new(
+  compte_bancaire_id: cb.id,
+  date: '30/01/2018',
+  categorie: 'Virement',
+  libelle: 'Cadeau Papa',
+  montant: 400,
+  )
+op11.save!
 
 op8 = Operation.new(
   compte_bancaire_id: cb.id,
   date: '19/01/2018',
   categorie: 'Sorties',
   libelle: 'R2',
-  montant: 50,
+  montant: -50,
   )
 op8.save!
 
@@ -117,7 +126,7 @@ op9 = Operation.new(
   date: '13/01/2018',
   categorie: 'Sorties',
   libelle: 'Son des guitares',
-  montant: 20,
+  montant: -20,
   )
 op9.save!
 
@@ -126,7 +135,7 @@ op10 = Operation.new(
   date: '06/01/2018',
   categorie: 'Sorties',
   libelle: 'Comptoir d\'endoume',
-  montant: 30,
+  montant: -30,
   )
 op10.save!
 

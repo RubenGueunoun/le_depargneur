@@ -1,0 +1,40 @@
+<% if @user_mi == @cb.user.messenger_id %>
+  <div class="webview-banner-show-cb">
+    <h2>Solde : <%= @cb.solde %> €</h2>
+  </div>
+  <div class="webview-show-cb-picto-box">
+    <div class="webview-show-cb-picto">
+      <%= image_tag "university-solid.png" %>
+    </div>
+  </div>
+  <div class="webview-show-cb-liste-operations">
+    <% @cb.operations.order(created_at: :asc).last(10).each do |operation| %>
+      <div class="webview-show-cb-card">
+        <div class="row">
+          <div class="col-xs-9">
+            <div class="webview-show-cb-info-ope">
+              <h4><%= operation.libelle %></h4>
+              <p><%= operation.date %></p>
+            </div>
+          </div>
+          <div class="col-xs-3">
+            <div class="webview-show-cb-montant-ope">
+              <% if operation.montant >= 0 %>
+                <div class="webview-montant-vert"><p><%= operation.montant %> €</p></div>
+              <% else %>
+                <div class="webview-montant-rouge"><p><%= operation.montant %> €</p></div>
+              <% end %>
+            </div>
+          </div>
+        </div>
+      </div>
+    <% end %>
+  </div>
+<% else %>
+  <div class="webview-banner-show-cb">
+    <h2>Error</h2>
+  </div>
+  <div class="webview-show-cb-liste-operations">
+    <p>Vous n'êtes pas authorisé à accéder à ce compte.</p>
+  </div>
+<% end %>
