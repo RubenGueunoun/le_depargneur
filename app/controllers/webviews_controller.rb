@@ -6,4 +6,10 @@ class WebviewsController < ApplicationController
     @cb = CompteBancaire.find(params[:cb_id])
     authorize(@cb)
   end
+
+  def show_cagnotte
+    @user_mi = params["messenger user id"].to_i
+    @cagnotte = Cagnotte.find(params[:cagnotte_id])
+    authorize(@cagnotte)
+  end
 end

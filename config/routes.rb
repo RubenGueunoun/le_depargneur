@@ -11,4 +11,5 @@ Rails.application.routes.draw do
   end
 
   get 'show_cb', to: 'webviews#show_cb'
+  get 'show_cagnotte', to: 'webviews#show_cagnotte'
 end
