@@ -1,0 +1,45 @@
+<% if @user_mi == @cagnotte.user.messenger_id %>
+  <div class="webview-banner-show-cagnotte">
+    <h2>"<%= @cagnotte.objectif.capitalize %>" - <b><%= @cagnotte.montant %> € </b></h2>
+  </div>
+  <div class="webview-show-cb-picto-box">
+    <div class="webview-show-cb-picto">
+      <%= image_tag "piggy-bank-solid.png" %>
+    </div>
+  </div>
+  <div class="webview-show-cb-liste-operations">
+    <% @cagnotte.transactions.order(created_at: :asc).last(15).each do |transaction| %>
+      <div class="webview-show-cb-card">
+        <div class="row">
+          <div class="col-xs-9">
+            <div class="webview-show-cb-info-ope">
+              <% if transaction.retrait == true %>
+                <h4>Retrait</h4>
+              <% else %>
+                <h4>Épargne <%= (transaction.automatique == true)? "automatique" : "manuelle" %></h4>
+              <% end %>
+              <p><%= transaction.created_at %></p>
+            </div>
+          </div>
+          <div class="col-xs-3">
+            <div class="webview-show-cb-montant-ope">
+              <% if transaction.retrait == false %>
+                <div class="webview-montant-vert"><p><%= transaction.montant %> €</p></div>
+              <% else %>
+                <div class="webview-montant-rouge"><p><%= transaction.montant %> €</p></div>
+              <% end %>
+            </div>
+          </div>
+        </div>
+      </div>
+    <% end %>
+  </div>
+
+<% else %>
+  <div class="webview-banner-show-cb">
+    <h2>Error</h2>
+  </div>
+  <div class="webview-show-cb-liste-operations">
+    <p>Vous n'êtes pas authorisé à accéder à ce compte.</p>
+  </div>
+<% end %>

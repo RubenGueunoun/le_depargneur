@@ -1,4 +1,4 @@
-<% if request.env["REQUEST_PATH"] == "/show_cb" %>
+<% if ["/show_cb", "/show_cagnotte"].include?(request.env["REQUEST_PATH"]) %>
 <% else %>
   <div class="navbar-wagon">
     <!-- Logo -->

@@ -19,7 +19,7 @@ json.messages do
               json.buttons do
                 json.array! [compte] do
                   json.type "web_url"
-                  json.url "www.ledepargneur.fr/show_cb?cb_id=#{compte.id}&messenger user id=#{compte.user.messenger_id}"
+                  json.url "https://www.ledepargneur.fr/show_cb?cb_id=#{compte.id}&messenger user id=#{compte.user.messenger_id}"
                   json.title "Compte Courant"
                 end
               end
@@ -29,13 +29,13 @@ json.messages do
               json.subtitle "Mis à jour #{compte.updated_at.to_date}"
               json.default_action do
                 json.type "web_url"
-                json.url "www.ledepargneur.fr"
+                json.url "https://www.ledepargneur.fr"
                 json.messenger_extensions false
               end
               json.buttons do
                 json.array! [compte] do
                   json.type "web_url"
-                  json.url "www.ledepargneur.fr"
+                  json.url "https://www.ledepargneur.fr/show_cagnotte?cagnotte_id=#{compte.id}&messenger user id=#{compte.user.messenger_id}"
                   json.title "Cagnotte \"#{compte.objectif}\""
                 end
               end

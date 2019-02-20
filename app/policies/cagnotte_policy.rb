@@ -17,4 +17,8 @@ class CagnottePolicy < ApplicationPolicy
   def create?
     true
   end
+
+  def show_cagnotte?
+    true
+  end
 end

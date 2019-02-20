@@ -1,5 +1,5 @@
 class WebviewsController < ApplicationController
-  skip_before_action :authenticate_user!, only: [:show_cb]
+  skip_before_action :authenticate_user!, only: [:show_cb, :show_cagnotte]
 
   def show_cb
     @user_mi = params["messenger user id"].to_i
