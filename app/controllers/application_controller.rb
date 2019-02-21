@@ -13,6 +13,12 @@ class ApplicationController < ActionController::Base
   #   redirect_to(root_path)
   # end
 
+  force_ssl if: :ssl_configured?
+
+  def ssl_configured?
+    !Rails.env.development?
+  end
+
   private
 
   def skip_pundit?

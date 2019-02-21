@@ -8,6 +8,12 @@ class Api::V1::BaseController < ActionController::API
   rescue_from Pundit::NotAuthorizedError,   with: :user_not_authorized
   rescue_from ActiveRecord::RecordNotFound, with: :not_found
 
+  force_ssl if: :ssl_configured?
+
+  def ssl_configured?
+    !Rails.env.development?
+  end
+
   private
 
   def user_not_authorized(exception)
