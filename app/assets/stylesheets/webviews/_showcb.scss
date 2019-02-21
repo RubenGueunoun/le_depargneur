@@ -1,14 +1,20 @@
 .webview-banner-show-cb {
   width: 100vw;
   height: 100px;
-  display: flex;
-  justify-content: center;
-  align-items: center;
+  text-align: center;
   background-color: #405C83;
   color: white;
   h2 {
-    font-size: 24px;
+    margin: 0px;
+    font-size: 30px;
+    font-weight: bold;
+    letter-spacing: 2px;
     padding-bottom: 10px;
+  }
+  p {
+    margin: 0px;
+    font-size: 16px;
+    padding-top: 15px;
   }
 }
 
@@ -51,7 +57,7 @@
   justify-content: flex-end;
   align-items: center;
   p {
-  font-size: 20px;
+  font-size: 18px;
   }
 }
 
