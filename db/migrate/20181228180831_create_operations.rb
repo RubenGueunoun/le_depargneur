@@ -4,7 +4,7 @@ class CreateOperations < ActiveRecord::Migration[5.2]
       t.datetime :date
       t.string :categorie
       t.string :libelle
-      t.integer :montant
+      t.float :montant
       t.references :compte_bancaire, foreign_key: true
 
       t.timestamps

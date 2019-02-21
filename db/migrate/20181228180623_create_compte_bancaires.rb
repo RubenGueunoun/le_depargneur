@@ -6,7 +6,7 @@ class CreateCompteBancaires < ActiveRecord::Migration[5.2]
       t.string :code_acces
       t.string :sepa
       t.string :rib
-      t.integer :solde
+      t.float :solde
       t.references :user, foreign_key: true
 
       t.timestamps

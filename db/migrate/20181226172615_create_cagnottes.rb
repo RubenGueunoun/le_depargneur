@@ -2,7 +2,7 @@ class CreateCagnottes < ActiveRecord::Migration[5.2]
   def change
     create_table :cagnottes do |t|
       t.datetime :date
-      t.integer :montant
+      t.float :montant
       t.string :objectif
       t.references :user, foreign_key: true
 

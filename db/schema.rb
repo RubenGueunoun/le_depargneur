@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_01_01_201724) do
+ActiveRecord::Schema.define(version: 2018_12_31_170507) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -27,7 +27,7 @@ ActiveRecord::Schema.define(version: 2019_01_01_201724) do
 
   create_table "cagnottes", force: :cascade do |t|
     t.datetime "date"
-    t.integer "montant"
+    t.float "montant"
     t.string "objectif"
     t.bigint "user_id"
     t.datetime "created_at", null: false
@@ -42,7 +42,7 @@ ActiveRecord::Schema.define(version: 2019_01_01_201724) do
     t.string "code_acces"
     t.string "sepa"
     t.string "rib"
-    t.integer "solde"
+    t.float "solde"
     t.bigint "user_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
@@ -54,7 +54,7 @@ ActiveRecord::Schema.define(version: 2019_01_01_201724) do
     t.datetime "date"
     t.string "categorie"
     t.string "libelle"
-    t.integer "montant"
+    t.float "montant"
     t.bigint "compte_bancaire_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
@@ -63,7 +63,7 @@ ActiveRecord::Schema.define(version: 2019_01_01_201724) do
 
   create_table "poste_depenses", force: :cascade do |t|
     t.string "categorie"
-    t.integer "montant"
+    t.float "montant"
     t.bigint "budget_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
@@ -85,7 +85,7 @@ ActiveRecord::Schema.define(version: 2019_01_01_201724) do
 
   create_table "transactions", force: :cascade do |t|
     t.boolean "retrait"
-    t.integer "montant"
+    t.float "montant"
     t.boolean "automatique"
     t.bigint "cagnotte_id"
     t.datetime "created_at", null: false
@@ -105,8 +105,6 @@ ActiveRecord::Schema.define(version: 2019_01_01_201724) do
     t.string "prenom"
     t.bigint "messenger_id"
     t.string "profil_depargneur"
-    t.string "authentication_token", limit: 30
-    t.index ["authentication_token"], name: "index_users_on_authentication_token", unique: true
     t.index ["email"], name: "index_users_on_email", unique: true
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end
