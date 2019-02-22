@@ -146,7 +146,8 @@ c1 = Cagnotte.new(
   user_id: user.id,
   genre: 'depargne',
   montant: 53.45,
-  objectif: 'precaution'
+  objectif: 'precaution',
+  somme: 0
   )
 c1.save!
 
