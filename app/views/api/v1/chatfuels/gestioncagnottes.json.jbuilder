@@ -11,7 +11,7 @@ json.messages do
           json.buttons do
             json.array! ["cagnotte"] do
               json.type "web_url"
-              json.url "https://www.ledepargneur.fr/cagnottes/new?messenger user id=#{user.messenger_id}"
+              json.url "https://www.ledepargneur.fr/cagnottes/new?messenger user id=#{@user.messenger_id}"
               json.title "+"
             end
           end
