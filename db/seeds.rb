@@ -154,7 +154,8 @@ c2 = Cagnotte.new(
   user_id: user.id,
   genre: 'objectif',
   montant: 103.03,
-  objectif: 'air pods'
+  objectif: 'air pods',
+  somme: 189.00
   )
 c2.save!
 

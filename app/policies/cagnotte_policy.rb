@@ -21,4 +21,5 @@ class CagnottePolicy < ApplicationPolicy
   def show_cagnotte?
     true
   end
+
 end
