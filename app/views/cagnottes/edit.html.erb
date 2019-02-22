@@ -1,0 +1,9 @@
+<h1>Cagnotte#edit</h1>
+<%= simple_form_for [@cagnotte] do |f| %>
+  <%= f.input :user_id, as: :hidden %>
+  <%= f.input :objectif, require: true %>
+  <%= f.input :date, require: true %>
+  <%= f.input :somme, require: true %>
+  <%= f.submit 'Créer ma cagnotte', class: "btn btn-primary" %>
+<% end %>
+

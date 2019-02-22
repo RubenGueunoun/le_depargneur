@@ -1,9 +1,19 @@
-<h1>Cagnotte#new</h1>
-<%= simple_form_for [@cagnotte] do |f| %>
-  <%= f.input :user_id, input_html: { id: 'user_id_cagnotte', value: @user.id }, as: :hidden %>
-  <%= f.input :objectif, require: true %>
-  <%= f.input :date, require: true %>
-  <%= f.input :somme, require: true %>
-  <%= f.submit 'Créer ma cagnotte', class: "btn btn-primary" %>
+<% if @user.cagnottes.count < 2 %>
+  <h1>Cagnotte#new</h1>
+  <%= simple_form_for [@cagnotte] do |f| %>
+    <%= f.input :user_id, input_html: { id: 'user_id_cagnotte', value: @user.id }, as: :hidden %>
+    <%= f.input :objectif, require: true %>
+    <%= f.input :date, require: true %>
+    <%= f.input :somme, require: true %>
+    <%= f.submit 'Créer ma cagnotte', class: "btn btn-primary" %>
+  <% end %>
+<% else %>
+  <% @user.cagnottes.where(genre: "objectif").each do |cagnotte| %>
+    <%= cagnotte.objectif.capitalize %>
+    <p><%= cagnotte.montant %>€ recoltés sur <%= cagnotte.somme %>€ d'objectif</p>
+    <p><%= cagnotte.date unless cagnotte.date.nil? %></p>
+    <%= link_to 'Modifier', edit_cagnotte_path(cagnotte), class: "btn-gris-sobre" %>
+    |
+    <%= link_to 'Delete', cagnotte_path(cagnotte), method: :delete, data: { confirm: 'Tu es sûr de vouloir supprimer définitivement cette cagnotte ? ' }, class: "btn-gris-sobre" %>
+  <% end %>
 <% end %>
-

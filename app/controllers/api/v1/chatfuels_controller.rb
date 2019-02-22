@@ -12,4 +12,9 @@ class Api::V1::ChatfuelsController < Api::V1::BaseController
       @comptes << cagnotte
     end
   end
+
+  def gestioncagnottes
+    @user = User.find_by(messenger_id: params["messenger user id"])
+    @message = ["message"]
+  end
 end

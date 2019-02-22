@@ -18,6 +18,10 @@ class CagnottePolicy < ApplicationPolicy
     true
   end
 
+  def destroy?
+    true
+  end
+
   def show_cagnotte?
     true
   end
