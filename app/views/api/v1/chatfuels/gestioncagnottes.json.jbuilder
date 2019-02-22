@@ -6,7 +6,7 @@ json.messages do
         json.template_type "list"
         json.top_element_style "large"
         json.elements do
-          json.array! ["message"] do |m|
+          json.array! ["message","mes"] do |m|
             json.title "Nouvelle cagnotte"
             json.image_url "https://res.cloudinary.com/dyvlvy5co/image/upload/v1549896001/piggy-bank-solid.png"
             json.subtitle "Ajoute une nouvelle cagnotte"
