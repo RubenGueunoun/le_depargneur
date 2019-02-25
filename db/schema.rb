@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_02_22_102434) do
+ActiveRecord::Schema.define(version: 2019_02_25_165942) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -59,6 +59,7 @@ ActiveRecord::Schema.define(version: 2019_02_22_102434) do
     t.bigint "compte_bancaire_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.boolean "depargne"
     t.index ["compte_bancaire_id"], name: "index_operations_on_compte_bancaire_id"
   end
 
@@ -73,10 +74,10 @@ ActiveRecord::Schema.define(version: 2019_02_22_102434) do
 
   create_table "smart_saving_rules", force: :cascade do |t|
     t.string "nom"
-    t.string "type"
     t.string "mecanisme"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.string "niveau"
   end
 
   create_table "smart_saving_rules_users", id: false, force: :cascade do |t|

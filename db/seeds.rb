@@ -46,6 +46,7 @@ op1 = Operation.new(
   categorie: 'Restaurant',
   libelle: 'La villa',
   montant: -55,
+  depargne: true,
   )
 op1.save!
 
@@ -55,6 +56,7 @@ op2 = Operation.new(
   categorie: 'Restaurant',
   libelle: 'Villa Rocca',
   montant: -23.10,
+  depargne: true,
   )
 op2.save!
 
@@ -64,6 +66,7 @@ op3 = Operation.new(
   categorie: 'Restaurant',
   libelle: 'Le petit Nice',
   montant: -200,
+  depargne: true,
   )
 op3.save!
 
@@ -73,6 +76,7 @@ op4 = Operation.new(
   categorie: 'Restaurant',
   libelle: 'Otto',
   montant: -43.50,
+  depargne: true,
   )
 op4.save!
 
@@ -82,6 +86,7 @@ op5 = Operation.new(
   categorie: 'Transport',
   libelle: 'Uber',
   montant: -12.37,
+  depargne: true,
   )
 op5.save!
 
@@ -91,6 +96,7 @@ op6 = Operation.new(
   categorie: 'Transport',
   libelle: 'Uber',
   montant: -9.70,
+  depargne: true,
   )
 op6.save!
 
@@ -100,6 +106,7 @@ op7 = Operation.new(
   categorie: 'Transport',
   libelle: 'SNCF',
   montant: -79.99,
+  depargne: true,
   )
 op7.save!
 
@@ -109,6 +116,7 @@ op11 = Operation.new(
   categorie: 'Virement',
   libelle: 'Cadeau Papa',
   montant: 400,
+  depargne: true,
   )
 op11.save!
 
@@ -118,6 +126,7 @@ op8 = Operation.new(
   categorie: 'Sorties',
   libelle: 'R2',
   montant: -50,
+  depargne: true,
   )
 op8.save!
 
@@ -127,6 +136,7 @@ op9 = Operation.new(
   categorie: 'Sorties',
   libelle: 'Son des guitares',
   montant: -20,
+  depargne: true,
   )
 op9.save!
 
@@ -136,6 +146,7 @@ op10 = Operation.new(
   categorie: 'Sorties',
   libelle: 'Comptoir d\'endoume',
   montant: -30,
+  depargne: true,
   )
 op10.save!
 
@@ -352,5 +363,83 @@ t23.save!
 
 
 # Smart saving rules
+
+ssr1 = SmartSavingRule.new(
+  nom: "dépargne",
+  niveau: "faible",
+  mecanisme: "simple"
+  )
+ssr1.save!
+
+ssr2 = SmartSavingRule.new(
+  nom: "dépargne",
+  niveau: "moyen",
+  mecanisme: "simple"
+  )
+ssr2.save!
+
+ssr3 = SmartSavingRule.new(
+  nom: "dépargne",
+  niveau: "fort",
+  mecanisme: "simple"
+  )
+ssr3.save!
+
+ssr4 = SmartSavingRule.new(
+  nom: "dépargne",
+  niveau: "faible",
+  mecanisme: "intelligent"
+  )
+ssr4.save!
+
+ssr5 = SmartSavingRule.new(
+  nom: "dépargne",
+  niveau: "moyen",
+  mecanisme: "intelligent"
+  )
+ssr5.save!
+
+ssr6 = SmartSavingRule.new(
+  nom: "dépargne",
+  niveau: "fort",
+  mecanisme: "intelligent"
+  )
+ssr6.save!
+
+ssr7 = SmartSavingRule.new(
+  nom: "météo",
+  niveau: "5",
+  mecanisme: "dimanche"
+  )
+ssr7.save!
+
+ssr8 = SmartSavingRule.new(
+  nom: "météo",
+  niveau: "10",
+  mecanisme: "dimanche"
+  )
+ssr8.save!
+
+ssr9 = SmartSavingRule.new(
+  nom: "météo",
+  niveau: "5",
+  mecanisme: "samedi"
+  )
+ssr9.save!
+
+ssr10 = SmartSavingRule.new(
+  nom: "météo",
+  niveau: "10",
+  mecanisme: "samedi"
+  )
+ssr10.save!
+
+
+# Choix d'un ssr par un user
+
+user.smart_saving_rules << ssr1
+user.save!
+
+
 
 puts "All done"

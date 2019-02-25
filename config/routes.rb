@@ -12,6 +12,8 @@ Rails.application.routes.draw do
 
   get 'show_cb', to: 'webviews#show_cb'
   get 'show_cagnotte', to: 'webviews#show_cagnotte'
+  get 'associer_ssr', to: 'webviews#associer_ssr'
+
 
   resources :cagnottes, only: [ :new, :create, :edit, :update, :destroy ]
 end
