@@ -1,27 +1,104 @@
 <% if @user.cagnottes.count < 2 %>
+  <div class="webview-banner-new-cagnotte">
+    <div class="conteneur-new-cagnotte">
+      <p>Pour des vacances, un téléphone, ou un cadeau...</p>
+      <h2>Créez votre Cagnotte !</h2>
+    </div>
+  </div>
+
+  <div class="webview-show-cb-picto-box">
+    <div class="webview-show-cb-picto">
+      <%= image_tag "piggy-bank-solid.png" %>
+    </div>
+  </div>
+
+  <div class="webview-explication-cagnottes">
+    <div class="conteneur-new-cagnotte">
+      <h3>Pourquoi créer ma cagnotte ?</h3>
+      <div class="row">
+        <div class="col-xs-12">
+          <div class="webview-card-cagnottes">
+            <div class="row">
+              <div class="col-xs-3"><%= image_tag "cellphone.svg", class: "picto-cagnottes" %></div>
+              <div class="col-xs-9">
+                <p>Sois MALIN: fixe toi un objectif concret et daté</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-xs-12">
+          <div class="webview-card-cagnottes">
+            <div class="row">
+              <div class="col-xs-3"><%= image_tag "money.svg", class: "picto-cagnottes" %></div>
+              <div class="col-xs-9">
+                <p>Remplis ta cagnotte grâce à ta dépargne</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-xs-12">
+          <div class="webview-card-cagnottes">
+            <div class="row">
+              <div class="col-xs-3"><%= image_tag "success.svg", class: "picto-cagnottes" %></div>
+              <div class="col-xs-9">
+                <p>Victoire ! <br>Tu t'es fait un kiff 😎</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <hr>
+
   <div class="conteneur-new-cagnotte">
-    <h1>Cagnotte#new</h1>
-    <%= simple_form_for [@cagnotte] do |f| %>
-      <%= f.input :user_id, input_html: { id: 'user_id_cagnotte', value: @user.id }, as: :hidden %>
-      <%= f.input :objectif, require: true %>
-      <%= f.input :date, require: true %>
-      <%= f.input :somme, require: true %>
-      <%= f.submit 'Créer ma cagnotte', class: "btn btn-primary" %>
-    <% end %>
+    <h3>Je crée ma cagnotte</h3>
+    <div class="webview-form-new-cagnotte">
+      <%= simple_form_for [@cagnotte] do |f| %>
+        <%= f.input :user_id, input_html: { id: 'user_id_cagnotte', value: @user.id }, as: :hidden %>
+        <%= f.input :objectif, require: true %>
+        <%= f.input :date, as: :date, start_year: Date.today.year,
+                                end_year: Date.today.year + 10,
+                                order: [:day, :month, :year] %>
+        <%= f.input :somme, require: true %>
+        <div class="centered-element">
+          <%= f.submit 'Créer ma cagnotte', class: "boutton-submit-webview" %>
+        </div>
+      <% end %>
+    </div>
   </div>
 
 
 
 <% else %>
 
-  <% @user.cagnottes.where(genre: "objectif").each do |cagnotte| %>
-    <%= cagnotte.objectif.capitalize %>
-    <p><%= cagnotte.montant %>€ recoltés sur <%= cagnotte.somme %>€ d'objectif</p>
-    <p><%= cagnotte.date unless cagnotte.date.nil? %></p>
-    <%= link_to 'Modifier', edit_cagnotte_path(cagnotte), class: "btn-gris-sobre" %>
-    |
-    <%= link_to 'Delete', cagnotte_path(cagnotte), method: :delete, data: { confirm: 'Tu es sûr de vouloir supprimer définitivement cette cagnotte ? ' }, class: "btn-gris-sobre" %>
-  <% end %>
+
+  <div class="webview-banner-new-cagnotte">
+    <div class="conteneur-new-cagnotte">
+      <h3>Oups...</h3>
+      <p>Vous ne pouvez pour l'instant pas créer plus d'une cagnotte à la fois</p>
+    </div>
+  </div>
+
+  <div class="conteneur-new-cagnotte">
+    <% @user.cagnottes.where(genre: "objectif").each do |cagnotte| %>
+      <h4><%= cagnotte.objectif.capitalize %></h4>
+      <div class="bar">
+        <div class="percentage has-tip"  style="width: <%= (cagnotte.montant/cagnotte.somme)*100 %>%">
+        </div>
+      </div>
+      <p><%= cagnotte.montant %>€ recoltés sur <%= cagnotte.somme %>€ d'objectif</p>
+      <p><%= cagnotte.date unless cagnotte.date.nil? %></p>
+      <%= link_to 'Modifier', edit_cagnotte_path(cagnotte), class: "btn-gris-sobre" %>
+      |
+      <%= link_to 'Supprimer', cagnotte_path(cagnotte), method: :delete, data: { confirm: 'Tu es sûr de vouloir supprimer définitivement cette cagnotte ? ' }, class: "btn-gris-sobre" %>
+    <% end %>
+  </div>
 
 
 <% end %>

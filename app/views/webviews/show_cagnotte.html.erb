@@ -9,6 +9,14 @@
     </div>
   </div>
   <div class="webview-show-cb-liste-operations">
+    <div class="webview-bar-objectif">
+      <p><%= @cagnotte.montant %>€ recoltés sur <%= @cagnotte.somme %>€ d'objectif</p>
+      <div class="bar">
+        <div class="percentage has-tip"  style="width: <%= (@cagnotte.montant/@cagnotte.somme)*100 %>%">
+        </div>
+      </div>
+    </div>
+    <hr>
     <% @cagnotte.transactions.order(created_at: :asc).last(15).each do |transaction| %>
       <div class="webview-show-cb-card">
         <div class="row">

@@ -1,9 +1,30 @@
-<h1>Cagnotte#edit</h1>
-<%= simple_form_for [@cagnotte] do |f| %>
-  <%= f.input :user_id, as: :hidden %>
-  <%= f.input :objectif, require: true %>
-  <%= f.input :date, require: true %>
-  <%= f.input :somme, require: true %>
-  <%= f.submit 'Créer ma cagnotte', class: "btn btn-primary" %>
-<% end %>
+<div class="webview-banner-new-cagnotte">
+  <div class="conteneur-new-cagnotte">
+    <p></p>
+    <p></p>
+    <h2>Un ajustement à faire ?</h2>
+  </div>
+</div>
 
+<div class="webview-show-cb-picto-box">
+  <div class="webview-show-cb-picto">
+    <%= image_tag "piggy-bank-solid.png" %>
+  </div>
+</div>
+
+<div class="conteneur-new-cagnotte">
+  <h3>Modfier ma cagnotte</h3>
+  <div class="webview-form-new-cagnotte">
+    <%= simple_form_for [@cagnotte] do |f| %>
+      <%= f.input :user_id, as: :hidden %>
+      <%= f.input :objectif, require: true %>
+      <%= f.input :date, as: :date, start_year: Date.today.year,
+                        end_year: Date.today.year + 10,
+                        order: [:day, :month, :year] %>
+      <%= f.input :somme, require: true %>
+      <div class="centered-element">
+        <%= f.submit 'Modifier ma cagnotte', class: "boutton-submit-webview" %>
+      </div>
+    <% end %>
+  </div>
+</div>
