@@ -442,4 +442,359 @@ user.save!
 
 
 
+
+
+# Creation de l'utilisateur Toub
+user1 = User.create!(
+  nom: 'Touboul',
+  prenom: 'Benjamin',
+  email: 'bentoub@gmail.com',
+  password: '123456',
+  messenger_id: 1744845105536020,
+  profil_depargneur: 'normal'
+  )
+
+
+# Compte bancaire
+
+cb1 = CompteBancaire.create!(
+  user_id: user1.id,
+  nom_banque: 'Bank B',
+  numero_compte: '28203838301123',
+  code_acces: '20820821',
+  sepa: 'link',
+  rib: 'link',
+  solde: 822.33,
+  rythme: 3
+  )
+
+op120 = Operation.new(
+  compte_bancaire_id: cb1.id,
+  date: '12/01/2018',
+  categorie: 'Restaurant',
+  libelle: 'La villa',
+  montant: -55,
+  depargne: true,
+  )
+op120.save!
+
+op12 = Operation.new(
+  compte_bancaire_id: cb1.id,
+  date: '10/01/2018',
+  categorie: 'Restaurant',
+  libelle: 'Villa Rocca',
+  montant: -23.10,
+  depargne: true,
+  )
+op12.save!
+
+op13 = Operation.new(
+  compte_bancaire_id: cb1.id,
+  date: '09/01/2018',
+  categorie: 'Restaurant',
+  libelle: 'Le petit Nice',
+  montant: -200,
+  depargne: true,
+  )
+op13.save!
+
+op14 = Operation.new(
+  compte_bancaire_id: cb1.id,
+  date: '23/01/2018',
+  categorie: 'Restaurant',
+  libelle: 'Otto',
+  montant: -43.50,
+  depargne: true,
+  )
+op14.save!
+
+op15 = Operation.new(
+  compte_bancaire_id: cb1.id,
+  date: '01/01/2018',
+  categorie: 'Transport',
+  libelle: 'Uber',
+  montant: -12.37,
+  depargne: true,
+  )
+op15.save!
+
+op16 = Operation.new(
+  compte_bancaire_id: cb1.id,
+  date: '14/01/2018',
+  categorie: 'Transport',
+  libelle: 'Uber',
+  montant: -9.70,
+  depargne: true,
+  )
+op16.save!
+
+op17 = Operation.new(
+  compte_bancaire_id: cb1.id,
+  date: '29/01/2018',
+  categorie: 'Transport',
+  libelle: 'SNCF',
+  montant: -79.99,
+  depargne: true,
+  )
+op17.save!
+
+op1100 = Operation.new(
+  compte_bancaire_id: cb1.id,
+  date: '30/01/2018',
+  categorie: 'Virement',
+  libelle: 'Cadeau Papa',
+  montant: 400,
+  depargne: true,
+  )
+op1100.save!
+
+op18 = Operation.new(
+  compte_bancaire_id: cb1.id,
+  date: '19/01/2018',
+  categorie: 'Sorties',
+  libelle: 'R2',
+  montant: -50,
+  depargne: true,
+  )
+op18.save!
+
+op19 = Operation.new(
+  compte_bancaire_id: cb1.id,
+  date: '13/01/2018',
+  categorie: 'Sorties',
+  libelle: 'Son des guitares',
+  montant: -20,
+  depargne: true,
+  )
+op19.save!
+
+op21 = Operation.new(
+  compte_bancaire_id: cb1.id,
+  date: '06/01/2018',
+  categorie: 'Sorties',
+  libelle: 'Comptoir d\'endoume',
+  montant: -30,
+  depargne: true,
+  )
+op21.save!
+
+
+# Cagnottes
+
+c3 = Cagnotte.new(
+  user_id: user1.id,
+  genre: 'depargne',
+  montant: 53.45,
+  objectif: 'precaution',
+  somme: 0
+  )
+c3.save!
+
+c4 = Cagnotte.new(
+  user_id: user1.id,
+  genre: 'objectif',
+  montant: 103.03,
+  objectif: 'air pods',
+  somme: 189.00
+  )
+c4.save!
+
+
+# transactions
+
+t101 = Transaction.new(
+  cagnotte_id: c3.id,
+  retrait: false,
+  montant: 4.23,
+  automatique: true
+  )
+t101.save!
+
+t201 = Transaction.new(
+  cagnotte_id: c3.id,
+  retrait: false,
+  montant: 8.21,
+  automatique: true
+  )
+t201.save!
+
+t301 = Transaction.new(
+  cagnotte_id: c3.id,
+  retrait: false,
+  montant: 2.45,
+  automatique: true
+  )
+t301.save!
+
+t401 = Transaction.new(
+  cagnotte_id: c3.id,
+  retrait: false,
+  montant: 7.56,
+  automatique: true
+  )
+t401.save!
+
+t501 = Transaction.new(
+  cagnotte_id: c3.id,
+  retrait: false,
+  montant: 20.00,
+  automatique: false
+  )
+t501.save!
+
+t601 = Transaction.new(
+  cagnotte_id: c3.id,
+  retrait: false,
+  montant: 6.86,
+  automatique: true
+  )
+t601.save!
+
+t701 = Transaction.new(
+  cagnotte_id: c3.id,
+  retrait: false,
+  montant: 7.74,
+  automatique: true
+  )
+t701.save!
+
+t801 = Transaction.new(
+  cagnotte_id: c3.id,
+  retrait: true,
+  montant: 40.00,
+  automatique: false
+  )
+t801.save!
+
+t901 = Transaction.new(
+  cagnotte_id: c3.id,
+  retrait: false,
+  montant: 5.98,
+  automatique: true
+  )
+t901.save!
+
+t1001 = Transaction.new(
+  cagnotte_id: c3.id,
+  retrait: false,
+  montant: 2.44,
+  automatique: true
+  )
+t1001.save!
+
+t1101 = Transaction.new(
+  cagnotte_id: c3.id,
+  retrait: false,
+  montant: 4.20,
+  automatique: true
+  )
+t1101.save!
+
+t1201 = Transaction.new(
+  cagnotte_id: c3.id,
+  retrait: false,
+  montant: 9.23,
+  automatique: true
+  )
+t1201.save!
+
+t1301 = Transaction.new(
+  cagnotte_id: c3.id,
+  retrait: false,
+  montant: 6.33,
+  automatique: true
+  )
+t1301.save!
+
+t1401 = Transaction.new(
+  cagnotte_id: c3.id,
+  retrait: false,
+  montant: 4.93,
+  automatique: true
+  )
+t1401.save!
+
+t1501 = Transaction.new(
+  cagnotte_id: c3.id,
+  retrait: false,
+  montant: 3.29,
+  automatique: true
+  )
+t1501.save!
+
+t1601 = Transaction.new(
+  cagnotte_id: c3.id,
+  retrait: false,
+  montant: 14.23,
+  automatique: true
+  )
+t1601.save!
+
+t1701 = Transaction.new(
+  cagnotte_id: c4.id,
+  retrait: false,
+  montant: 8.21,
+  automatique: true
+  )
+t1701.save!
+
+t1801 = Transaction.new(
+  cagnotte_id: c4.id,
+  retrait: false,
+  montant: 12.45,
+  automatique: true
+  )
+t1801.save!
+
+t1901 = Transaction.new(
+  cagnotte_id: c4.id,
+  retrait: false,
+  montant: 7.56,
+  automatique: true
+  )
+t1901.save!
+
+t2001 = Transaction.new(
+  cagnotte_id: c4.id,
+  retrait: false,
+  montant: 20.00,
+  automatique: false
+  )
+t2001.save!
+
+t2101 = Transaction.new(
+  cagnotte_id: c4.id,
+  retrait: false,
+  montant: 6.86,
+  automatique: true
+  )
+t2101.save!
+
+t2201 = Transaction.new(
+  cagnotte_id: c4.id,
+  retrait: false,
+  montant: 7.74,
+  automatique: true
+  )
+t2201.save!
+
+t2301 = Transaction.new(
+  cagnotte_id: c4.id,
+  retrait: false,
+  montant: 25.98,
+  automatique: true
+  )
+t2301.save!
+
+
+# Budgets
+
+# Choix d'un ssr par un user
+
+user1.smart_saving_rules << ssr1
+user1.save!
+
+
+
+
 puts "All done"
