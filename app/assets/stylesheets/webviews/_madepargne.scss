@@ -1,0 +1,78 @@
+.conteneur-webview-depargne {
+  margin: 0px 25px;
+  hr {
+    background-color: rgba(64,92,131,1);
+  }
+  h3 {
+    font-size: 20px;
+    font-weight: bold;
+  }
+  p {
+    font-size: 14px;
+    margin: 0px;
+  }
+  h4 {
+    font-size: 14px;
+    font-weight: bold;
+  }
+}
+
+.center-flex-box {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.webview-depargne-explications-box {
+  margin-top: 25px;
+  padding: 15px;
+  background-color: rgba(64,92,131,0.2);
+  border-radius: 4px;
+  img {
+    height: 70px;
+    width: 70px;
+  }
+}
+
+.webview-depargne-explications-title {
+  display: flex;
+  justify-content: flex-start;
+  margin-bottom: 15px;
+}
+
+.webview-depargne-explications-title-text {
+  padding-left: 15px;
+}
+
+
+.webview-depargne-choix-niveau {
+  padding: 15px;
+  background-color: rgba(64,92,131,0.2);
+  border-radius: 4px;
+  h3 {
+    margin: 0px;
+  }
+  margin-bottom: 15px;
+}
+
+.webview-depargne-choix-niveau-card {
+  margin: 10px 0px;
+  display: flex;
+  justify-content: space-between;
+}
+
+.webview-depargne-choix-niveau-card-button {
+  margin-top: 4px;
+}
+
+.webview-depargne-choix-niveau-card-title {
+  width: 75px;
+}
+
+.webview-depargne-position-boutton {
+  text-align: center;
+  margin: 30px 0px;
+  a {
+    text-decoration: none;
+  }
+}

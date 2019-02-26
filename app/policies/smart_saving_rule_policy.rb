@@ -8,4 +8,8 @@ class SmartSavingRulePolicy < ApplicationPolicy
   def associer_ssr?
     true
   end
+
+  def ma_depargne?
+    true
+  end
 end
