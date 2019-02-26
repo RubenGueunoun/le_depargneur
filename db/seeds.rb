@@ -450,7 +450,7 @@ user1 = User.create!(
   prenom: 'Benjamin',
   email: 'bentoub@gmail.com',
   password: '123456',
-  messenger_id: 1744845105536020,
+  messenger_id: 2047709478577132,
   profil_depargneur: 'normal'
   )
 
