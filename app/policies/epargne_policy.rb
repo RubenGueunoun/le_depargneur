@@ -16,4 +16,8 @@ class EpargnePolicy < ApplicationPolicy
   def ma_depargne?
     true
   end
+
+  def ssr_pluie?
+    true
+  end
 end

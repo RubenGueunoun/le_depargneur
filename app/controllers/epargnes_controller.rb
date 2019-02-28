@@ -4,32 +4,20 @@ class EpargnesController < ApplicationController
 
   def create
     @epargne = Epargne.new(epargne_params)
-    user = User.find(@epargne.user_id)
     authorize(@epargne)
+    url = request.env["HTTP_REFERER"]
 
     if @epargne.save
-      if Rails.env == "development"
-        redirect_to "http://localhost:3000/ma_depargne?messenger user id=#{user.messenger_id}"
-      else
-        redirect_to "https://www.ledepargneur.fr/ma_depargne?messenger user id=#{user.messenger_id}"
-      end
+      redirect_to url
     else
-      if Rails.env == "development"
-        redirect_to "https://localhost:3000/ma_depargne?messenger user id=#{user.messenger_id}"
-      else
-        redirect_to "https://www.ledepargneur.fr/ma_depargne?messenger user id=#{user.messenger_id}"
-      end
+      redirect_to url
     end
   end
 
   def destroy
-    user = User.find(@epargne.user_id)
     @epargne.destroy
-    if Rails.env == "development"
-      redirect_to "http://localhost:3000/ma_depargne?messenger user id=#{user.messenger_id}"
-    else
-      redirect_to "https://www.ledepargneur.fr/ma_depargne?messenger user id=#{user.messenger_id}"
-    end
+    url = request.env["HTTP_REFERER"]
+    redirect_to url
   end
 
   private

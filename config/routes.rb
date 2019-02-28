@@ -14,6 +14,7 @@ Rails.application.routes.draw do
   get 'show_cb', to: 'webviews#show_cb'
   get 'show_cagnotte', to: 'webviews#show_cagnotte'
   get 'ma_depargne', to: 'webviews#ma_depargne'
+  get 'ssr_pluie', to: 'webviews#ssr_pluie'
   get 'associer_ssr', to: 'webviews#associer_ssr'
 
 

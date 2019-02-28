@@ -786,6 +786,20 @@ ssr10 = SmartSavingRule.new(
   )
 ssr10.save!
 
+ssr11 = SmartSavingRule.new(
+  nom: "météo",
+  niveau: "15",
+  mecanisme: "samedi"
+  )
+ssr11.save!
+
+ssr12 = SmartSavingRule.new(
+  nom: "météo",
+  niveau: "15",
+  mecanisme: "dimanche"
+  )
+ssr12.save!
+
 
 # Choix d'un ssr par un user
 epargne1 = Epargne.new(

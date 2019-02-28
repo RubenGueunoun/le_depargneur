@@ -1,37 +1,30 @@
 <div class="webview-banner-show-cb center-flex-box">
-  <h2>Gère ta dépargne 👇</h2>
+  <h2>Gère ta règle 👇</h2>
 </div>
 
 <div class="conteneur-webview-depargne">
   <div class="webview-depargne-explications-box">
     <div class="webview-depargne-explications-title">
-      <%= image_tag "pay.png" %>
+      <%= image_tag "rain.png" %>
       <div class="webview-depargne-explications-title-text">
-        <h3>Pourquoi Dépargner ?</h3>
+        <h3>J'aime pas la pluie</h3>
       </div>
     </div>
-    <p>La dépargne te permet de mettre de petites sommes de côté à chacune de tes dépenses grâce à un arrondi fixe ou dynamique.</p>
+    <p>Quand il pleut, on sort pas ou peu. On dépense donc pas ou peu. Une opportunité pour mettre de côté et se faire plaisir plus tard.</p>
   </div>
 
   <hr>
-
-  <h3>Paramètre ta Dépargne</h3>
+  <h3>Paramètre ta règle</h3>
   <div class="webview-depargne-choix-niveau">
     <div class="webview-depargne-title-et-infos">
-      <h3>Dynamique</h3>
-      <div data-toggle="modal" data-target="#myModal_dynamique">
-        <em>Comment ça marche ?</em>
-      </div>
+      <h3>Samedi de pluie</h3>
     </div>
 
     <div class="webview-depargne-choix-niveau-card">
-      <div class="webview-depargne-choix-niveau-card-title">
-        <h4>Tranquille</h4>
-      </div>
       <div class="webview-depargne-choix-niveau-card-button">
-        <% if @ssr_user.include?(@epargnes[:epargnes_tranquille])%>
+        <% if @ssr_user.include?(@epargnes[:epargnes_samedi5])%>
           <div class="webview-depargne-position-boutton webview-depargne-position-boutton-on">
-            <%= link_to epargne_path(@epargnes[:epargnes_tranquille]), method: :delete do %>
+            <%= link_to epargne_path(@epargnes[:epargnes_samedi5]), method: :delete do %>
               <div class="base_switch_button">
                 <div class="switch_button_element_texte-on">
                   <p>ON</p>
@@ -43,7 +36,7 @@
         <% else %>
           <%= simple_form_for [@epargne] do |f| %>
             <%= f.input :user_id, input_html: { id: 'user_id_cagnotte', value: @user.id }, as: :hidden %>
-            <%= f.input :smart_saving_rule_id, input_html: { id: 'user_id_cagnotte', value: @depargne[:depargne_tranquille].id }, as: :hidden  %>
+            <%= f.input :smart_saving_rule_id, input_html: { id: 'user_id_cagnotte', value: @ssr[:ssr_samedi5].id }, as: :hidden  %>
              <div class="webview-depargne-position-boutton">
               <%= button_tag(type: 'submit') do %>
                 <div class="base_switch_button become-off">
@@ -57,17 +50,16 @@
           <% end %>
         <% end %>
       </div>
-      <p>Prévisions:<br>45€/mois</p>
+      <div class="webview-depargne-titre-regle">
+        <h4>5€ mis de côté</h4>
+      </div>
     </div>
 
     <div class="webview-depargne-choix-niveau-card">
-      <div class="webview-depargne-choix-niveau-card-title">
-        <h4>Normal</h4>
-      </div>
       <div class="webview-depargne-choix-niveau-card-button">
-        <% if @ssr_user.include?(@epargnes[:epargnes_normal])%>
+        <% if @ssr_user.include?(@epargnes[:epargnes_samedi10])%>
           <div class="webview-depargne-position-boutton webview-depargne-position-boutton-on">
-            <%= link_to epargne_path(@epargnes[:epargnes_normal]), method: :delete do %>
+            <%= link_to epargne_path(@epargnes[:epargnes_samedi10]), method: :delete do %>
               <div class="base_switch_button">
                 <div class="switch_button_element_texte-on">
                   <p>ON</p>
@@ -79,7 +71,7 @@
         <% else %>
           <%= simple_form_for [@epargne] do |f| %>
             <%= f.input :user_id, input_html: { id: 'user_id_cagnotte', value: @user.id }, as: :hidden %>
-            <%= f.input :smart_saving_rule_id, input_html: { id: 'user_id_cagnotte', value: @depargne[:depargne_normal].id }, as: :hidden  %>
+            <%= f.input :smart_saving_rule_id, input_html: { id: 'user_id_cagnotte', value: @ssr[:ssr_samedi10].id }, as: :hidden  %>
              <div class="webview-depargne-position-boutton">
               <%= button_tag(type: 'submit') do %>
                 <div class="base_switch_button become-off">
@@ -93,17 +85,16 @@
           <% end %>
         <% end %>
       </div>
-      <p>Prévisions:<br>85€/mois</p>
+      <div class="webview-depargne-titre-regle">
+        <h4>10€ mis de côté</h4>
+      </div>
     </div>
 
     <div class="webview-depargne-choix-niveau-card">
-      <div class="webview-depargne-choix-niveau-card-title">
-        <h4>Ambitieux</h4>
-      </div>
       <div class="webview-depargne-choix-niveau-card-button">
-        <% if @ssr_user.include?(@epargnes[:epargnes_ambitieux])%>
+        <% if @ssr_user.include?(@epargnes[:epargnes_samedi15])%>
           <div class="webview-depargne-position-boutton webview-depargne-position-boutton-on">
-            <%= link_to epargne_path(@epargnes[:epargnes_ambitieux]), method: :delete do %>
+            <%= link_to epargne_path(@epargnes[:epargnes_samedi15]), method: :delete do %>
               <div class="base_switch_button">
                 <div class="switch_button_element_texte-on">
                   <p>ON</p>
@@ -115,7 +106,7 @@
         <% else %>
           <%= simple_form_for [@epargne] do |f| %>
             <%= f.input :user_id, input_html: { id: 'user_id_cagnotte', value: @user.id }, as: :hidden %>
-            <%= f.input :smart_saving_rule_id, input_html: { id: 'user_id_cagnotte', value: @depargne[:depargne_ambitieux].id }, as: :hidden  %>
+            <%= f.input :smart_saving_rule_id, input_html: { id: 'user_id_cagnotte', value: @ssr[:ssr_samedi15].id }, as: :hidden  %>
              <div class="webview-depargne-position-boutton">
               <%= button_tag(type: 'submit') do %>
                 <div class="base_switch_button become-off">
@@ -129,27 +120,23 @@
           <% end %>
         <% end %>
       </div>
-      <p>Prévisions:<br>125€/mois</p>
+      <div class="webview-depargne-titre-regle">
+        <h4>15€ mis de côté</h4>
+      </div>
     </div>
 
   </div>
 
     <div class="webview-depargne-choix-niveau">
     <div class="webview-depargne-title-et-infos">
-      <h3>Fixe</h3>
-      <div data-toggle="modal" data-target="#myModal_fixe">
-        <em>Comment ça marche ?</em>
-      </div>
+      <h3>Dimanche de pluie</h3>
     </div>
 
     <div class="webview-depargne-choix-niveau-card">
-      <div class="webview-depargne-choix-niveau-card-title">
-        <h4>+1€</h4>
-      </div>
       <div class="webview-depargne-choix-niveau-card-button">
-        <% if @ssr_user.include?(@epargnes[:epargnes_1euro])%>
+        <% if @ssr_user.include?(@epargnes[:epargnes_dimanche5])%>
           <div class="webview-depargne-position-boutton webview-depargne-position-boutton-on">
-            <%= link_to epargne_path(@epargnes[:epargnes_1euro]), method: :delete do %>
+            <%= link_to epargne_path(@epargnes[:epargnes_dimanche5]), method: :delete do %>
               <div class="base_switch_button">
                 <div class="switch_button_element_texte-on">
                   <p>ON</p>
@@ -161,7 +148,7 @@
         <% else %>
           <%= simple_form_for [@epargne] do |f| %>
             <%= f.input :user_id, input_html: { id: 'user_id_cagnotte', value: @user.id }, as: :hidden %>
-            <%= f.input :smart_saving_rule_id, input_html: { id: 'user_id_cagnotte', value: @depargne[:depargne_1euro].id }, as: :hidden  %>
+            <%= f.input :smart_saving_rule_id, input_html: { id: 'user_id_cagnotte', value: @ssr[:ssr_dimanche5].id }, as: :hidden  %>
              <div class="webview-depargne-position-boutton">
               <%= button_tag(type: 'submit') do %>
                 <div class="base_switch_button become-off">
@@ -175,17 +162,16 @@
           <% end %>
         <% end %>
       </div>
-      <p>Prévisions:<br>15€/mois</p>
+      <div class="webview-depargne-titre-regle">
+        <h4>5€ mis de côté</h4>
+      </div>
     </div>
 
     <div class="webview-depargne-choix-niveau-card">
-      <div class="webview-depargne-choix-niveau-card-title">
-        <h4>+2€</h4>
-      </div>
       <div class="webview-depargne-choix-niveau-card-button">
-        <% if @ssr_user.include?(@epargnes[:epargnes_2euro])%>
+        <% if @ssr_user.include?(@epargnes[:epargnes_dimanche10])%>
           <div class="webview-depargne-position-boutton webview-depargne-position-boutton-on">
-            <%= link_to epargne_path(@epargnes[:epargnes_2euro]), method: :delete do %>
+            <%= link_to epargne_path(@epargnes[:epargnes_dimanche10]), method: :delete do %>
               <div class="base_switch_button">
                 <div class="switch_button_element_texte-on">
                   <p>ON</p>
@@ -197,7 +183,7 @@
         <% else %>
           <%= simple_form_for [@epargne] do |f| %>
             <%= f.input :user_id, input_html: { id: 'user_id_cagnotte', value: @user.id }, as: :hidden %>
-            <%= f.input :smart_saving_rule_id, input_html: { id: 'user_id_cagnotte', value: @depargne[:depargne_2euro].id }, as: :hidden  %>
+            <%= f.input :smart_saving_rule_id, input_html: { id: 'user_id_cagnotte', value: @ssr[:ssr_dimanche10].id }, as: :hidden  %>
              <div class="webview-depargne-position-boutton">
               <%= button_tag(type: 'submit') do %>
                 <div class="base_switch_button become-off">
@@ -211,17 +197,16 @@
           <% end %>
         <% end %>
       </div>
-      <p>Prévisions:<br>25€/mois</p>
+      <div class="webview-depargne-titre-regle">
+        <h4>10€ mis de côté</h4>
+      </div>
     </div>
 
     <div class="webview-depargne-choix-niveau-card">
-      <div class="webview-depargne-choix-niveau-card-title">
-        <h4>+5€</h4>
-      </div>
       <div class="webview-depargne-choix-niveau-card-button">
-        <% if @ssr_user.include?(@epargnes[:epargnes_5euro])%>
+        <% if @ssr_user.include?(@epargnes[:epargnes_dimanche15])%>
           <div class="webview-depargne-position-boutton webview-depargne-position-boutton-on">
-            <%= link_to epargne_path(@epargnes[:epargnes_5euro]), method: :delete do %>
+            <%= link_to epargne_path(@epargnes[:epargnes_dimanche15]), method: :delete do %>
               <div class="base_switch_button">
                 <div class="switch_button_element_texte-on">
                   <p>ON</p>
@@ -233,7 +218,7 @@
         <% else %>
           <%= simple_form_for [@epargne] do |f| %>
             <%= f.input :user_id, input_html: { id: 'user_id_cagnotte', value: @user.id }, as: :hidden %>
-            <%= f.input :smart_saving_rule_id, input_html: { id: 'user_id_cagnotte', value: @depargne[:depargne_5euro].id }, as: :hidden  %>
+            <%= f.input :smart_saving_rule_id, input_html: { id: 'user_id_cagnotte', value: @ssr[:ssr_dimanche15].id }, as: :hidden  %>
              <div class="webview-depargne-position-boutton">
               <%= button_tag(type: 'submit') do %>
                 <div class="base_switch_button become-off">
@@ -247,7 +232,9 @@
           <% end %>
         <% end %>
       </div>
-      <p>Prévisions:<br>45€/mois</p>
+      <div class="webview-depargne-titre-regle">
+        <h4>15€ mis de côté</h4>
+      </div>
     </div>
 
   </div>
@@ -257,7 +244,3 @@
   </div>
 
 </div>
-
-
-<%= render 'shared/modaldynamique' %>
-<%= render 'shared/modalfixe' %>
