@@ -15,11 +15,10 @@ json.messages do
                 json.url "www.ledepargneur.fr"
                 json.messenger_extensions false
               end
-
             else
-              json.title "Nouvelle cagnotte"
+              json.title "Ajoute une nouvelle cagnotte"
               json.image_url "https://res.cloudinary.com/dyvlvy5co/image/upload/v1549896001/piggy-bank-solid.png"
-              json.subtitle "Ajoute une nouvelle cagnotte"
+              json.subtitle "C'est l'idéal pour se faire plaisir 🏝"
               json.default_action do
                 json.type "web_url"
                 json.url "www.ledepargneur.fr"
