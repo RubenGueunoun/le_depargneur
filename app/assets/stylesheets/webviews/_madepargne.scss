@@ -86,3 +86,12 @@
   margin-top: 12px !important;
   margin-bottom: 13px !important;
 }
+
+.webview-depargne-title-et-infos {
+  display: flex;
+  justify-content: space-between;
+  em {
+    font-size: 10px;
+    color: #42a3b8;
+  }
+}

@@ -28,3 +28,11 @@
   text-align: center;
 }
 
+.position-boutton-valider {
+  text-align: center;
+  margin: 25px;
+  a:focus {
+    color: white;
+    text-decoration: none;
+  }
+}

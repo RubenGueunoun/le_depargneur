@@ -16,7 +16,12 @@
   <hr>
 
   <div class="webview-depargne-choix-niveau">
-    <h3>Dynamique</h3>
+    <div class="webview-depargne-title-et-infos">
+      <h3>Dynamique</h3>
+      <div data-toggle="modal" data-target="#myModal_dynamique">
+        <em>Comment ça marche ?</em>
+      </div>
+    </div>
 
     <div class="webview-depargne-choix-niveau-card">
       <div class="webview-depargne-choix-niveau-card-title">
@@ -129,7 +134,12 @@
   </div>
 
     <div class="webview-depargne-choix-niveau">
-    <h3>Fixe</h3>
+    <div class="webview-depargne-title-et-infos">
+      <h3>Fixe</h3>
+      <div data-toggle="modal" data-target="#myModal_fixe">
+        <em>Comment ça marche ?</em>
+      </div>
+    </div>
 
     <div class="webview-depargne-choix-niveau-card">
       <div class="webview-depargne-choix-niveau-card-title">
@@ -241,4 +251,12 @@
 
   </div>
 
+  <div class="position-boutton-valider">
+    <a href="#" class="boutton-valider">Valider</a>
+  </div>
+
 </div>
+
+
+<%= render 'shared/modaldynamique' %>
+<%= render 'shared/modalfixe' %>
