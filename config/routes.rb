@@ -8,6 +8,7 @@ Rails.application.routes.draw do
       get 'relevedecomptes', to: 'chatfuels#relevedecomptes'
       get 'gestioncagnottes', to: 'chatfuels#gestioncagnottes'
       get 'gestiondepargne', to: 'chatfuels#gestiondepargne'
+      get 'gestionssr', to: 'chatfuels#gestionssr'
     end
   end
 

@@ -1,7 +1,7 @@
 class Api::V1::BaseController < ActionController::API
   include Pundit
 
-  after_action :verify_authorized, except: [:index, :relevedecomptes, :gestioncagnottes, :gestiondepargne]
+  after_action :verify_authorized, except: [:index, :relevedecomptes, :gestioncagnottes, :gestiondepargne, :gestionssr]
   after_action :verify_policy_scoped, only: :index
 
   rescue_from StandardError,                with: :internal_server_error
