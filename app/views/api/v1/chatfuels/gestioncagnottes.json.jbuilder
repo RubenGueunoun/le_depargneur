@@ -16,6 +16,13 @@ json.messages do
                 json.url "www.ledepargneur.fr"
                 json.messenger_extensions false
               end
+              json.buttons do
+                json.array! [m] do
+                  json.type "web_url"
+                  json.url "https://www.ledepargneur.fr/cagnottes/new?messenger user id=#{@user.messenger_id}"
+                  json.title " "
+                end
+              end
             else
               json.title "Nouvelle cagnotte"
               json.image_url "https://res.cloudinary.com/dyvlvy5co/image/upload/v1549896001/piggy-bank-solid.png"
