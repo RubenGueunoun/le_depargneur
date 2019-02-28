@@ -7,7 +7,7 @@ json.messages do
         json.top_element_style "large"
         json.elements do
           json.array! ["message","mes"] do |m|
-            if m == message
+            if m == "message"
               json.title " "
               json.image_url "https://res.cloudinary.com/dyvlvy5co/image/upload/v1549896001/piggy-bank-solid.png"
               json.subtitle " "
