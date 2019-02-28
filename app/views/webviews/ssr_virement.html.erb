@@ -1,0 +1,204 @@
+<div class="webview-banner-show-cb center-flex-box">
+  <h2>Gère ta règle 👇</h2>
+</div>
+
+<div class="conteneur-webview-depargne">
+  <div class="webview-depargne-explications-box">
+    <div class="webview-depargne-explications-title">
+      <%= image_tag "calendar.png" %>
+      <div class="webview-depargne-explications-title-text">
+        <h3>🍕 d'un virement reçu de côté</h3>
+      </div>
+    </div>
+    <p>Chaque fois que tu reçois ton salaire ou tout autre virement de plus de 100€ sur ton compte, on met un % de côté. Chaud ?</p>
+  </div>
+
+  <hr>
+  <h3>Paramètre ta règle</h3>
+  <div class="webview-depargne-choix-niveau">
+    <div class="webview-depargne-title-et-infos">
+      <h3>🍕 d'un virement reçu</h3>
+    </div>
+
+    <div class="webview-depargne-choix-niveau-card">
+      <div class="webview-depargne-choix-niveau-card-button">
+        <% if @ssr_user.include?(@epargnes[:epargnes_pf10])%>
+          <div class="webview-depargne-position-boutton webview-depargne-position-boutton-on">
+            <%= link_to epargne_path(@epargnes[:epargnes_pf10]), method: :delete do %>
+              <div class="base_switch_button">
+                <div class="switch_button_element_texte-on">
+                  <p>ON</p>
+                </div>
+                <div class="switch_button_element_blanc"></div>
+              </div>
+            <% end %>
+          </div>
+        <% else %>
+          <%= simple_form_for [@epargne] do |f| %>
+            <%= f.input :user_id, input_html: { id: 'user_id_cagnotte', value: @user.id }, as: :hidden %>
+            <%= f.input :smart_saving_rule_id, input_html: { id: 'user_id_cagnotte', value: @ssr[:ssr_pf10].id }, as: :hidden  %>
+             <div class="webview-depargne-position-boutton">
+              <%= button_tag(type: 'submit') do %>
+                <div class="base_switch_button become-off">
+                  <div class="switch_button_element_blanc"></div>
+                  <div class="switch_button_element_texte-off">
+                    <p>OFF</p>
+                  </div>
+                </div>
+              <% end %>
+            </div>
+          <% end %>
+        <% end %>
+      </div>
+      <div class="webview-depargne-titre-regle">
+        <h4>10€ fixe de côté</h4>
+      </div>
+    </div>
+
+    <div class="webview-depargne-choix-niveau-card">
+      <div class="webview-depargne-choix-niveau-card-button">
+        <% if @ssr_user.include?(@epargnes[:epargnes_pf20])%>
+          <div class="webview-depargne-position-boutton webview-depargne-position-boutton-on">
+            <%= link_to epargne_path(@epargnes[:epargnes_pf20]), method: :delete do %>
+              <div class="base_switch_button">
+                <div class="switch_button_element_texte-on">
+                  <p>ON</p>
+                </div>
+                <div class="switch_button_element_blanc"></div>
+              </div>
+            <% end %>
+          </div>
+        <% else %>
+          <%= simple_form_for [@epargne] do |f| %>
+            <%= f.input :user_id, input_html: { id: 'user_id_cagnotte', value: @user.id }, as: :hidden %>
+            <%= f.input :smart_saving_rule_id, input_html: { id: 'user_id_cagnotte', value: @ssr[:ssr_pf20].id }, as: :hidden  %>
+             <div class="webview-depargne-position-boutton">
+              <%= button_tag(type: 'submit') do %>
+                <div class="base_switch_button become-off">
+                  <div class="switch_button_element_blanc"></div>
+                  <div class="switch_button_element_texte-off">
+                    <p>OFF</p>
+                  </div>
+                </div>
+              <% end %>
+            </div>
+          <% end %>
+        <% end %>
+      </div>
+      <div class="webview-depargne-titre-regle">
+        <h4>20€ fixe de côté</h4>
+      </div>
+    </div>
+
+    <div class="webview-depargne-choix-niveau-card">
+      <div class="webview-depargne-choix-niveau-card-button">
+        <% if @ssr_user.include?(@epargnes[:epargnes_pv2])%>
+          <div class="webview-depargne-position-boutton webview-depargne-position-boutton-on">
+            <%= link_to epargne_path(@epargnes[:epargnes_pv2]), method: :delete do %>
+              <div class="base_switch_button">
+                <div class="switch_button_element_texte-on">
+                  <p>ON</p>
+                </div>
+                <div class="switch_button_element_blanc"></div>
+              </div>
+            <% end %>
+          </div>
+        <% else %>
+          <%= simple_form_for [@epargne] do |f| %>
+            <%= f.input :user_id, input_html: { id: 'user_id_cagnotte', value: @user.id }, as: :hidden %>
+            <%= f.input :smart_saving_rule_id, input_html: { id: 'user_id_cagnotte', value: @ssr[:ssr_pv2].id }, as: :hidden  %>
+             <div class="webview-depargne-position-boutton">
+              <%= button_tag(type: 'submit') do %>
+                <div class="base_switch_button become-off">
+                  <div class="switch_button_element_blanc"></div>
+                  <div class="switch_button_element_texte-off">
+                    <p>OFF</p>
+                  </div>
+                </div>
+              <% end %>
+            </div>
+          <% end %>
+        <% end %>
+      </div>
+      <div class="webview-depargne-titre-regle">
+        <h4>2% de côté</h4>
+      </div>
+    </div>
+
+    <div class="webview-depargne-choix-niveau-card">
+      <div class="webview-depargne-choix-niveau-card-button">
+        <% if @ssr_user.include?(@epargnes[:epargnes_pv3])%>
+          <div class="webview-depargne-position-boutton webview-depargne-position-boutton-on">
+            <%= link_to epargne_path(@epargnes[:epargnes_pv3]), method: :delete do %>
+              <div class="base_switch_button">
+                <div class="switch_button_element_texte-on">
+                  <p>ON</p>
+                </div>
+                <div class="switch_button_element_blanc"></div>
+              </div>
+            <% end %>
+          </div>
+        <% else %>
+          <%= simple_form_for [@epargne] do |f| %>
+            <%= f.input :user_id, input_html: { id: 'user_id_cagnotte', value: @user.id }, as: :hidden %>
+            <%= f.input :smart_saving_rule_id, input_html: { id: 'user_id_cagnotte', value: @ssr[:ssr_pv3].id }, as: :hidden  %>
+             <div class="webview-depargne-position-boutton">
+              <%= button_tag(type: 'submit') do %>
+                <div class="base_switch_button become-off">
+                  <div class="switch_button_element_blanc"></div>
+                  <div class="switch_button_element_texte-off">
+                    <p>OFF</p>
+                  </div>
+                </div>
+              <% end %>
+            </div>
+          <% end %>
+        <% end %>
+      </div>
+      <div class="webview-depargne-titre-regle">
+        <h4>3% de côté</h4>
+      </div>
+    </div>
+
+    <div class="webview-depargne-choix-niveau-card">
+      <div class="webview-depargne-choix-niveau-card-button">
+        <% if @ssr_user.include?(@epargnes[:epargnes_pv5])%>
+          <div class="webview-depargne-position-boutton webview-depargne-position-boutton-on">
+            <%= link_to epargne_path(@epargnes[:epargnes_pv5]), method: :delete do %>
+              <div class="base_switch_button">
+                <div class="switch_button_element_texte-on">
+                  <p>ON</p>
+                </div>
+                <div class="switch_button_element_blanc"></div>
+              </div>
+            <% end %>
+          </div>
+        <% else %>
+          <%= simple_form_for [@epargne] do |f| %>
+            <%= f.input :user_id, input_html: { id: 'user_id_cagnotte', value: @user.id }, as: :hidden %>
+            <%= f.input :smart_saving_rule_id, input_html: { id: 'user_id_cagnotte', value: @ssr[:ssr_pv5].id }, as: :hidden  %>
+             <div class="webview-depargne-position-boutton">
+              <%= button_tag(type: 'submit') do %>
+                <div class="base_switch_button become-off">
+                  <div class="switch_button_element_blanc"></div>
+                  <div class="switch_button_element_texte-off">
+                    <p>OFF</p>
+                  </div>
+                </div>
+              <% end %>
+            </div>
+          <% end %>
+        <% end %>
+      </div>
+      <div class="webview-depargne-titre-regle">
+        <h4>5% de côté</h4>
+      </div>
+    </div>
+
+  </div>
+
+  <div class="position-boutton-valider">
+    <a href="#" class="boutton-valider">Valider</a>
+  </div>
+
+</div>

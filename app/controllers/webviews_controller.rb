@@ -1,6 +1,6 @@
 class WebviewsController < ApplicationController
-  skip_before_action :authenticate_user!, only: [:show_cb, :show_cagnotte, :associer_ssr, :ma_depargne, :ssr_pluie]
-  before_action :find_user, only: [:show_cb, :show_cagnotte, :associer_ssr, :ma_depargne, :ssr_pluie]
+  skip_before_action :authenticate_user!, only: [:show_cb, :show_cagnotte, :associer_ssr, :ma_depargne, :ssr_pluie, :ssr_cigarette, :ssr_virement]
+  before_action :find_user, only: [:show_cb, :show_cagnotte, :associer_ssr, :ma_depargne, :ssr_pluie, :ssr_cigarette, :ssr_virement]
 
   def show_cb
     @cb = CompteBancaire.find(params[:cb_id])
@@ -71,6 +71,52 @@ class WebviewsController < ApplicationController
       epargnes_dimanche5: d.nil? ? "vide" : d,
       epargnes_dimanche10: e.nil? ? "vide" : e,
       epargnes_dimanche15: f.nil? ? "vide" : f
+    }
+    @epargne = Epargne.new()
+    authorize(@epargne)
+  end
+
+  def ssr_cigarette
+    @user = User.find_by(messenger_id: @user_mi)
+    @ssr_user = @user.epargnes
+    @ssr = {
+      ssr_cigarette1: SmartSavingRule.find_by(nom: "cigarette", mecanisme: "jour", niveau: "1"),
+      ssr_cigarette2: SmartSavingRule.find_by(nom: "cigarette", mecanisme: "jour", niveau: "2"),
+      ssr_cigarette3: SmartSavingRule.find_by(nom: "cigarette", mecanisme: "jour", niveau: "3")
+    }
+    a = Epargne.find_by(user_id: @user.id, smart_saving_rule_id: @ssr[:ssr_cigarette1].id)
+    b = Epargne.find_by(user_id: @user.id, smart_saving_rule_id: @ssr[:ssr_cigarette2].id)
+    c = Epargne.find_by(user_id: @user.id, smart_saving_rule_id: @ssr[:ssr_cigarette3].id)
+    @epargnes = {
+      epargnes_cigarette1: a.nil? ? "vide" : a,
+      epargnes_cigarette2: b.nil? ? "vide" : b,
+      epargnes_cigarette3: c.nil? ? "vide" : c
+    }
+    @epargne = Epargne.new()
+    authorize(@epargne)
+  end
+
+  def ssr_virement
+    @user = User.find_by(messenger_id: @user_mi)
+    @ssr_user = @user.epargnes
+    @ssr = {
+      ssr_pf10: SmartSavingRule.find_by(nom: "météo", mecanisme: "samedi", niveau: "5"),
+      ssr_pf20: SmartSavingRule.find_by(nom: "météo", mecanisme: "samedi", niveau: "10"),
+      ssr_pv2: SmartSavingRule.find_by(nom: "météo", mecanisme: "samedi", niveau: "15"),
+      ssr_pv3: SmartSavingRule.find_by(nom: "météo", mecanisme: "dimanche", niveau: "5"),
+      ssr_pv5: SmartSavingRule.find_by(nom: "météo", mecanisme: "dimanche", niveau: "10")
+    }
+    a = Epargne.find_by(user_id: @user.id, smart_saving_rule_id: @ssr[:ssr_pf10].id)
+    b = Epargne.find_by(user_id: @user.id, smart_saving_rule_id: @ssr[:ssr_pf20].id)
+    c = Epargne.find_by(user_id: @user.id, smart_saving_rule_id: @ssr[:ssr_pv2].id)
+    d = Epargne.find_by(user_id: @user.id, smart_saving_rule_id: @ssr[:ssr_pv3].id)
+    e = Epargne.find_by(user_id: @user.id, smart_saving_rule_id: @ssr[:ssr_pv5].id)
+    @epargnes = {
+      epargnes_pf10: a.nil? ? "vide" : a,
+      epargnes_pf20: b.nil? ? "vide" : b,
+      epargnes_pv2: c.nil? ? "vide" : c,
+      epargnes_pv3: d.nil? ? "vide" : d,
+      epargnes_pv5: e.nil? ? "vide" : e
     }
     @epargne = Epargne.new()
     authorize(@epargne)

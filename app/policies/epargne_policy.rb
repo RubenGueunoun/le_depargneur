@@ -20,4 +20,12 @@ class EpargnePolicy < ApplicationPolicy
   def ssr_pluie?
     true
   end
+
+  def ssr_cigarette?
+    true
+  end
+
+  def ssr_virement?
+    true
+  end
 end

@@ -800,6 +800,62 @@ ssr12 = SmartSavingRule.new(
   )
 ssr12.save!
 
+ssr13 = SmartSavingRule.new(
+  nom: "cigarette",
+  niveau: "1",
+  mecanisme: "jour"
+  )
+ssr13.save!
+
+ssr14 = SmartSavingRule.new(
+  nom: "cigarette",
+  niveau: "2",
+  mecanisme: "jour"
+  )
+ssr14.save!
+
+ssr15 = SmartSavingRule.new(
+  nom: "cigarette",
+  niveau: "3",
+  mecanisme: "jour"
+  )
+ssr15.save!
+
+ssr16 = SmartSavingRule.new(
+  nom: "virement",
+  niveau: "2",
+  mecanisme: "pourcentage"
+  )
+ssr16.save!
+
+ssr17 = SmartSavingRule.new(
+  nom: "virement",
+  niveau: "3",
+  mecanisme: "pourcentage"
+  )
+ssr17.save!
+
+ssr18 = SmartSavingRule.new(
+  nom: "virement",
+  niveau: "5",
+  mecanisme: "pourcentage"
+  )
+ssr18.save!
+
+ssr19 = SmartSavingRule.new(
+  nom: "virement",
+  niveau: "10",
+  mecanisme: "fixe"
+  )
+ssr19.save!
+
+ssr20 = SmartSavingRule.new(
+  nom: "virement",
+  niveau: "20",
+  mecanisme: "fixe"
+  )
+ssr20.save!
+
 
 # Choix d'un ssr par un user
 epargne1 = Epargne.new(
