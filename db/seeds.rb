@@ -788,14 +788,17 @@ ssr10.save!
 
 
 # Choix d'un ssr par un user
+epargne1 = Epargne.new(
+  user_id: user.id,
+  smart_saving_rule_id: ssr1.id
+  )
+epargne1.save!
 
-user.smart_saving_rules << ssr1
-user.save!
-
-user1.smart_saving_rules << ssr1
-user1.save!
-
-
+epargne2 = Epargne.new(
+  user_id: user1.id,
+  smart_saving_rule_id: ssr1.id
+  )
+epargne1.save!
 
 
 puts "All done"

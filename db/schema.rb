@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_02_25_165942) do
+ActiveRecord::Schema.define(version: 2019_02_27_095435) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -51,6 +51,15 @@ ActiveRecord::Schema.define(version: 2019_02_25_165942) do
     t.index ["user_id"], name: "index_compte_bancaires_on_user_id"
   end
 
+  create_table "epargnes", force: :cascade do |t|
+    t.bigint "user_id"
+    t.bigint "smart_saving_rule_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["smart_saving_rule_id"], name: "index_epargnes_on_smart_saving_rule_id"
+    t.index ["user_id"], name: "index_epargnes_on_user_id"
+  end
+
   create_table "operations", force: :cascade do |t|
     t.datetime "date"
     t.string "categorie"
@@ -78,11 +87,6 @@ ActiveRecord::Schema.define(version: 2019_02_25_165942) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.string "niveau"
-  end
-
-  create_table "smart_saving_rules_users", id: false, force: :cascade do |t|
-    t.bigint "user_id", null: false
-    t.bigint "smart_saving_rule_id", null: false
   end
 
   create_table "transactions", force: :cascade do |t|
@@ -114,6 +118,8 @@ ActiveRecord::Schema.define(version: 2019_02_25_165942) do
   add_foreign_key "budgets", "users"
   add_foreign_key "cagnottes", "users"
   add_foreign_key "compte_bancaires", "users"
+  add_foreign_key "epargnes", "smart_saving_rules"
+  add_foreign_key "epargnes", "users"
   add_foreign_key "operations", "compte_bancaires"
   add_foreign_key "poste_depenses", "budgets"
   add_foreign_key "transactions", "cagnottes"

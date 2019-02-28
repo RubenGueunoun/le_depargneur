@@ -38,11 +38,6 @@ class CagnottesController < ApplicationController
 
   def destroy
     user = User.find(@cagnotte.user_id)
-    @cagnotte.transactions.each do |transaction|
-      authorize(transaction)
-      transaction.destroy
-    end
-
     @cagnotte.destroy
     redirect_to "https://www.ledepargneur.fr/cagnottes/new?messenger user id=#{user.messenger_id}"
   end

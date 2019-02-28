@@ -7,7 +7,7 @@ class User < ApplicationRecord
   has_many :cagnottes
   has_many :compte_bancaires
   has_many :budgets
-  has_and_belongs_to_many :smart_saving_rules
+  has_many :epargnes
 
   # validates :messenger_id, uniqueness: true
 end

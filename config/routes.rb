@@ -7,6 +7,7 @@ Rails.application.routes.draw do
     namespace :v1 do
       get 'relevedecomptes', to: 'chatfuels#relevedecomptes'
       get 'gestioncagnottes', to: 'chatfuels#gestioncagnottes'
+      get 'gestiondepargne', to: 'chatfuels#gestiondepargne'
     end
   end
 
@@ -17,4 +18,5 @@ Rails.application.routes.draw do
 
 
   resources :cagnottes, only: [ :new, :create, :edit, :update, :destroy ]
+  resources :epargnes
 end

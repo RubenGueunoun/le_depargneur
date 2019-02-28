@@ -59,6 +59,7 @@
   margin: 10px 0px;
   display: flex;
   justify-content: space-between;
+  align-items: center;
 }
 
 .webview-depargne-choix-niveau-card-button {
@@ -71,8 +72,13 @@
 
 .webview-depargne-position-boutton {
   text-align: center;
-  margin: 30px 0px;
+  margin: 10px 0px;
   a {
     text-decoration: none;
   }
+}
+
+.webview-depargne-position-boutton-on {
+  margin-top: 12px !important;
+  margin-bottom: 13px !important;
 }

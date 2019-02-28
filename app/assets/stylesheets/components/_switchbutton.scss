@@ -1,3 +1,41 @@
+.base_switch_button {
+  height: 30px;
+  width: 70px;
+  background-color: #7EAC08;
+  border: 1px solid rgb(150,150,150);
+  border-radius: 50px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.switch_button_element_blanc {
+  height: 25px;
+  width: 25px;
+  background-color: white;
+  border-radius: 50px;
+  border: 1px solid rgb(150,150,150);
+  margin-right: 2px;
+  margin-left: 2px;
+}
+
+.switch_button_element_texte-on {
+  color: white;
+  padding-left: 10px;
+}
+
+.switch_button_element_texte-off {
+  font-weight: bold;
+  color: #CC2C2C;
+  padding-right: 10px;
+}
+
+.become-off {
+  background-color: rgb(200,200,200) !important;
+}
+
+
+
 //* Tranquille
 
 .onoffswitch-tranquille {

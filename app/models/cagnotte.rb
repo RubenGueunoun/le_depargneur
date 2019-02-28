@@ -1,6 +1,6 @@
 class Cagnotte < ApplicationRecord
   belongs_to :user
-  has_many :transactions
+  has_many :transactions, dependent: :destroy
 
   validates :objectif, presence: true
   validates :genre, presence: true
