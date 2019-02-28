@@ -29,13 +29,19 @@ class WebviewsController < ApplicationController
       depargne_2euro: SmartSavingRule.find_by(nom: "dépargne", mecanisme: "simple", niveau: "moyen"),
       depargne_5euro: SmartSavingRule.find_by(nom: "dépargne", mecanisme: "simple", niveau: "fort")
     }
+    a = Epargne.find_by(user_id: @user.id, smart_saving_rule_id: @depargne[:depargne_tranquille].id)
+    b = Epargne.find_by(user_id: @user.id, smart_saving_rule_id: @depargne[:depargne_normal].id)
+    c = Epargne.find_by(user_id: @user.id, smart_saving_rule_id: @depargne[:depargne_ambitieux].id)
+    d = Epargne.find_by(user_id: @user.id, smart_saving_rule_id: @depargne[:depargne_1euro].id)
+    e = Epargne.find_by(user_id: @user.id, smart_saving_rule_id: @depargne[:depargne_2euro].id)
+    f = Epargne.find_by(user_id: @user.id, smart_saving_rule_id: @depargne[:depargne_5euro].id)
     @epargnes = {
-      epargnes_tranquille: Epargne.find_by(user_id: @user.id, smart_saving_rule_id: @depargne[:depargne_tranquille].id),
-      epargnes_normal: Epargne.find_by(user_id: @user.id, smart_saving_rule_id: @depargne[:depargne_normal].id),
-      epargnes_ambitieux: Epargne.find_by(user_id: @user.id, smart_saving_rule_id: @depargne[:depargne_ambitieux].id),
-      epargnes_1euro: Epargne.find_by(user_id: @user.id, smart_saving_rule_id: @depargne[:depargne_1euro].id),
-      epargnes_2euro: Epargne.find_by(user_id: @user.id, smart_saving_rule_id: @depargne[:depargne_2euro].id),
-      epargnes_5euro: Epargne.find_by(user_id: @user.id, smart_saving_rule_id: @depargne[:depargne_5euro].id)
+      epargnes_tranquille: a.nil? ? "vide" : a,
+      epargnes_normal: b.nil? ? "vide" : b,
+      epargnes_ambitieux: c.nil? ? "vide" : c,
+      epargnes_1euro: d.nil? ? "vide" : d,
+      epargnes_2euro: e.nil? ? "vide" : e,
+      epargnes_5euro: f.nil? ? "vide" : f
     }
     @epargne = Epargne.new()
     authorize(@epargne)
