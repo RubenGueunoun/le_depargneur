@@ -64,10 +64,12 @@ class WebviewsController < ApplicationController
     d = Epargne.find_by(user_id: @user.id, smart_saving_rule_id: @ssr[:ssr_dimanche5].id)
     e = Epargne.find_by(user_id: @user.id, smart_saving_rule_id: @ssr[:ssr_dimanche10].id)
     f = Epargne.find_by(user_id: @user.id, smart_saving_rule_id: @ssr[:ssr_dimanche15].id)
-    @epargnes = {
+    @epargnes_s = {
       epargnes_samedi5: a.nil? ? "vide" : a,
       epargnes_samedi10: b.nil? ? "vide" : b,
-      epargnes_samedi15: c.nil? ? "vide" : c,
+      epargnes_samedi15: c.nil? ? "vide" : c
+    }
+    @epargnes_d = {
       epargnes_dimanche5: d.nil? ? "vide" : d,
       epargnes_dimanche10: e.nil? ? "vide" : e,
       epargnes_dimanche15: f.nil? ? "vide" : f
@@ -100,11 +102,11 @@ class WebviewsController < ApplicationController
     @user = User.find_by(messenger_id: @user_mi)
     @ssr_user = @user.epargnes
     @ssr = {
-      ssr_pf10: SmartSavingRule.find_by(nom: "météo", mecanisme: "samedi", niveau: "5"),
-      ssr_pf20: SmartSavingRule.find_by(nom: "météo", mecanisme: "samedi", niveau: "10"),
-      ssr_pv2: SmartSavingRule.find_by(nom: "météo", mecanisme: "samedi", niveau: "15"),
-      ssr_pv3: SmartSavingRule.find_by(nom: "météo", mecanisme: "dimanche", niveau: "5"),
-      ssr_pv5: SmartSavingRule.find_by(nom: "météo", mecanisme: "dimanche", niveau: "10")
+      ssr_pf10: SmartSavingRule.find_by(nom: "virement", mecanisme: "fixe", niveau: "10"),
+      ssr_pf20: SmartSavingRule.find_by(nom: "virement", mecanisme: "fixe", niveau: "20"),
+      ssr_pv2: SmartSavingRule.find_by(nom: "virement", mecanisme: "pourcentage", niveau: "2"),
+      ssr_pv3: SmartSavingRule.find_by(nom: "virement", mecanisme: "pourcentage", niveau: "3"),
+      ssr_pv5: SmartSavingRule.find_by(nom: "virement", mecanisme: "pourcentage", niveau: "5")
     }
     a = Epargne.find_by(user_id: @user.id, smart_saving_rule_id: @ssr[:ssr_pf10].id)
     b = Epargne.find_by(user_id: @user.id, smart_saving_rule_id: @ssr[:ssr_pf20].id)
