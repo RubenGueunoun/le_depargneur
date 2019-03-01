@@ -8,9 +8,15 @@ class EpargnesController < ApplicationController
     url = request.env["HTTP_REFERER"]
 
     if @epargne.save
-      redirect_to url
+      respond_to do |format|
+        format.html { redirect_to url }
+        format.js { }
+      end
     else
-      redirect_to url
+      respond_to do |format|
+        format.html { redirect_to url }
+        format.js { }
+      end
     end
   end
 
@@ -19,16 +25,25 @@ class EpargnesController < ApplicationController
 
     if @epargne.update(epargne_params)
       authorize(@epargne)
-      redirect_to url
+      respond_to do |format|
+        format.html { redirect_to url }
+        format.js { }
+      end
     else
-      redirect_to url
+      respond_to do |format|
+        format.html { redirect_to url }
+        format.js { }
+      end
     end
   end
 
   def destroy
     @epargne.destroy
     url = request.env["HTTP_REFERER"]
-    redirect_to url
+    respond_to do |format|
+      format.html { redirect_to url }
+      format.js { }
+    end
   end
 
   private

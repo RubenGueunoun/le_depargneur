@@ -24,7 +24,7 @@
       <div class="webview-depargne-choix-niveau-card-button">
         <% if @ssr_user.include?(@epargnes[:epargnes_pf10])%>
           <div class="webview-depargne-position-boutton webview-depargne-position-boutton-on">
-            <%= link_to epargne_path(@epargnes[:epargnes_pf10]), method: :delete do %>
+            <%= link_to epargne_path(@epargnes[:epargnes_pf10]), method: :delete, remote: true do %>
               <div class="base_switch_button">
                 <div class="switch_button_element_texte-on">
                   <p>ON</p>
@@ -34,7 +34,7 @@
             <% end %>
           </div>
         <% elsif @epargnes.values.uniq.count > 1 %>
-          <%= simple_form_for [@epargnes.values.uniq[0] == "vide" ? @epargnes.values.uniq[1] : @epargnes.values.uniq[0]] do |f| %>
+          <%= simple_form_for [@epargnes.values.uniq[0] == "vide" ? @epargnes.values.uniq[1] : @epargnes.values.uniq[0]], remote: true do |f| %>
             <%= f.input :user_id, input_html: { id: 'user_id_cagnotte', value: @user.id }, as: :hidden %>
             <%= f.input :smart_saving_rule_id, input_html: { id: 'user_id_cagnotte', value: @ssr[:ssr_pf10].id }, as: :hidden  %>
              <div class="webview-depargne-position-boutton">
@@ -49,7 +49,7 @@
             </div>
           <% end %>
         <% else %>
-          <%= simple_form_for [@epargne] do |f| %>
+          <%= simple_form_for [@epargne], remote: true do |f| %>
             <%= f.input :user_id, input_html: { id: 'user_id_cagnotte', value: @user.id }, as: :hidden %>
             <%= f.input :smart_saving_rule_id, input_html: { id: 'user_id_cagnotte', value: @ssr[:ssr_pf10].id }, as: :hidden  %>
              <div class="webview-depargne-position-boutton">
@@ -74,7 +74,7 @@
       <div class="webview-depargne-choix-niveau-card-button">
         <% if @ssr_user.include?(@epargnes[:epargnes_pf20])%>
           <div class="webview-depargne-position-boutton webview-depargne-position-boutton-on">
-            <%= link_to epargne_path(@epargnes[:epargnes_pf20]), method: :delete do %>
+            <%= link_to epargne_path(@epargnes[:epargnes_pf20]), method: :delete, remote: true do %>
               <div class="base_switch_button">
                 <div class="switch_button_element_texte-on">
                   <p>ON</p>
@@ -84,7 +84,7 @@
             <% end %>
           </div>
         <% elsif @epargnes.values.uniq.count > 1 %>
-          <%= simple_form_for [@epargnes.values.uniq[0] == "vide" ? @epargnes.values.uniq[1] : @epargnes.values.uniq[0]] do |f| %>
+          <%= simple_form_for [@epargnes.values.uniq[0] == "vide" ? @epargnes.values.uniq[1] : @epargnes.values.uniq[0]], remote: true do |f| %>
             <%= f.input :user_id, input_html: { id: 'user_id_cagnotte', value: @user.id }, as: :hidden %>
             <%= f.input :smart_saving_rule_id, input_html: { id: 'user_id_cagnotte', value: @ssr[:ssr_pf20].id }, as: :hidden  %>
              <div class="webview-depargne-position-boutton">
@@ -99,7 +99,7 @@
             </div>
           <% end %>
         <% else %>
-          <%= simple_form_for [@epargne] do |f| %>
+          <%= simple_form_for [@epargne], remote: true do |f| %>
             <%= f.input :user_id, input_html: { id: 'user_id_cagnotte', value: @user.id }, as: :hidden %>
             <%= f.input :smart_saving_rule_id, input_html: { id: 'user_id_cagnotte', value: @ssr[:ssr_pf20].id }, as: :hidden  %>
              <div class="webview-depargne-position-boutton">
@@ -124,7 +124,7 @@
       <div class="webview-depargne-choix-niveau-card-button">
         <% if @ssr_user.include?(@epargnes[:epargnes_pv2])%>
           <div class="webview-depargne-position-boutton webview-depargne-position-boutton-on">
-            <%= link_to epargne_path(@epargnes[:epargnes_pv2]), method: :delete do %>
+            <%= link_to epargne_path(@epargnes[:epargnes_pv2]), method: :delete, remote: true do %>
               <div class="base_switch_button">
                 <div class="switch_button_element_texte-on">
                   <p>ON</p>
@@ -134,7 +134,7 @@
             <% end %>
           </div>
         <% elsif @epargnes.values.uniq.count > 1 %>
-          <%= simple_form_for [@epargnes.values.uniq[0] == "vide" ? @epargnes.values.uniq[1] : @epargnes.values.uniq[0]] do |f| %>
+          <%= simple_form_for [@epargnes.values.uniq[0] == "vide" ? @epargnes.values.uniq[1] : @epargnes.values.uniq[0]], remote: true do |f| %>
             <%= f.input :user_id, input_html: { id: 'user_id_cagnotte', value: @user.id }, as: :hidden %>
             <%= f.input :smart_saving_rule_id, input_html: { id: 'user_id_cagnotte', value: @ssr[:ssr_pv2].id }, as: :hidden  %>
              <div class="webview-depargne-position-boutton">
@@ -149,7 +149,7 @@
             </div>
           <% end %>
         <% else %>
-          <%= simple_form_for [@epargne] do |f| %>
+          <%= simple_form_for [@epargne], remote: true do |f| %>
             <%= f.input :user_id, input_html: { id: 'user_id_cagnotte', value: @user.id }, as: :hidden %>
             <%= f.input :smart_saving_rule_id, input_html: { id: 'user_id_cagnotte', value: @ssr[:ssr_pv2].id }, as: :hidden  %>
              <div class="webview-depargne-position-boutton">
@@ -174,7 +174,7 @@
       <div class="webview-depargne-choix-niveau-card-button">
         <% if @ssr_user.include?(@epargnes[:epargnes_pv3])%>
           <div class="webview-depargne-position-boutton webview-depargne-position-boutton-on">
-            <%= link_to epargne_path(@epargnes[:epargnes_pv3]), method: :delete do %>
+            <%= link_to epargne_path(@epargnes[:epargnes_pv3]), method: :delete, remote: true do %>
               <div class="base_switch_button">
                 <div class="switch_button_element_texte-on">
                   <p>ON</p>
@@ -184,7 +184,7 @@
             <% end %>
           </div>
         <% elsif @epargnes.values.uniq.count > 1 %>
-          <%= simple_form_for [@epargnes.values.uniq[0] == "vide" ? @epargnes.values.uniq[1] : @epargnes.values.uniq[0]] do |f| %>
+          <%= simple_form_for [@epargnes.values.uniq[0] == "vide" ? @epargnes.values.uniq[1] : @epargnes.values.uniq[0]], remote: true do |f| %>
             <%= f.input :user_id, input_html: { id: 'user_id_cagnotte', value: @user.id }, as: :hidden %>
             <%= f.input :smart_saving_rule_id, input_html: { id: 'user_id_cagnotte', value: @ssr[:ssr_pv3].id }, as: :hidden  %>
              <div class="webview-depargne-position-boutton">
@@ -199,7 +199,7 @@
             </div>
           <% end %>
         <% else %>
-          <%= simple_form_for [@epargne] do |f| %>
+          <%= simple_form_for [@epargne], remote: true do |f| %>
             <%= f.input :user_id, input_html: { id: 'user_id_cagnotte', value: @user.id }, as: :hidden %>
             <%= f.input :smart_saving_rule_id, input_html: { id: 'user_id_cagnotte', value: @ssr[:ssr_pv3].id }, as: :hidden  %>
              <div class="webview-depargne-position-boutton">
@@ -224,7 +224,7 @@
       <div class="webview-depargne-choix-niveau-card-button">
         <% if @ssr_user.include?(@epargnes[:epargnes_pv5])%>
           <div class="webview-depargne-position-boutton webview-depargne-position-boutton-on">
-            <%= link_to epargne_path(@epargnes[:epargnes_pv5]), method: :delete do %>
+            <%= link_to epargne_path(@epargnes[:epargnes_pv5]), method: :delete, remote: true do %>
               <div class="base_switch_button">
                 <div class="switch_button_element_texte-on">
                   <p>ON</p>
@@ -234,7 +234,7 @@
             <% end %>
           </div>
         <% elsif @epargnes.values.uniq.count > 1 %>
-          <%= simple_form_for [@epargnes.values.uniq[0] == "vide" ? @epargnes.values.uniq[1] : @epargnes.values.uniq[0]] do |f| %>
+          <%= simple_form_for [@epargnes.values.uniq[0] == "vide" ? @epargnes.values.uniq[1] : @epargnes.values.uniq[0]], remote: true do |f| %>
             <%= f.input :user_id, input_html: { id: 'user_id_cagnotte', value: @user.id }, as: :hidden %>
             <%= f.input :smart_saving_rule_id, input_html: { id: 'user_id_cagnotte', value: @ssr[:ssr_pv5].id }, as: :hidden  %>
              <div class="webview-depargne-position-boutton">
@@ -249,7 +249,7 @@
             </div>
           <% end %>
         <% else %>
-          <%= simple_form_for [@epargne] do |f| %>
+          <%= simple_form_for [@epargne], remote: true do |f| %>
             <%= f.input :user_id, input_html: { id: 'user_id_cagnotte', value: @user.id }, as: :hidden %>
             <%= f.input :smart_saving_rule_id, input_html: { id: 'user_id_cagnotte', value: @ssr[:ssr_pv5].id }, as: :hidden  %>
              <div class="webview-depargne-position-boutton">
