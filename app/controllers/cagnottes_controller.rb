@@ -16,14 +16,12 @@ class CagnottesController < ApplicationController
     authorize(@cagnotte)
 
     if @cagnotte.save
-      flash[:notice] = true
       if Rails.env == "development"
         redirect_to "http://localhost:3000/show_cagnotte?cagnotte_id=#{@cagnotte.id} &messenger user id=#{user.messenger_id}"
       else
         redirect_to "https://www.ledepargneur.fr/show_cagnotte?cagnotte_id=#{@cagnotte.id} &messenger user id=#{user.messenger_id}"
       end
     else
-      flash[:alert] = 'Erreur! Cagnotte invalide.'
       if Rails.env == "development"
         redirect_to "http://localhost:3000/cagnottes/new?messenger user id=#{user.messenger_id}"
       else
@@ -40,14 +38,12 @@ class CagnottesController < ApplicationController
     authorize(@cagnotte)
 
     if @cagnotte.update(cagnotte_params)
-     flash[:notice] = true
       if Rails.env == "development"
         redirect_to "http://localhost:3000/show_cagnotte?cagnotte_id=#{@cagnotte.id} &messenger user id=#{user.messenger_id}"
       else
         redirect_to "https://www.ledepargneur.fr/show_cagnotte?cagnotte_id=#{@cagnotte.id} &messenger user id=#{user.messenger_id}"
       end
     else
-      flash[:alert] = 'Erreur! Cagnotte invalide.'
       if Rails.env == "development"
         redirect_to "http://localhost:3000/cagnottes/edit?messenger user id=#{user.messenger_id}"
       else
