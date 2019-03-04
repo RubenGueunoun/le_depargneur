@@ -1,4 +1,5 @@
 class Api::V1::ChatfuelsController < Api::V1::BaseController
+
   def relevedecomptes
     user = User.where(messenger_id: params["messenger user id"])
     @cb = CompteBancaire.where(user: user)
@@ -27,4 +28,5 @@ class Api::V1::ChatfuelsController < Api::V1::BaseController
     @user = User.find_by(messenger_id: params["messenger user id"])
     @message = ["message"]
   end
+
 end
