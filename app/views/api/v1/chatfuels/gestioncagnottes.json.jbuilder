@@ -10,18 +10,13 @@ json.messages do
             if m == "message"
               json.title "Nouvelle cagnotte"
               json.image_url "https://res.cloudinary.com/dyvlvy5co/image/upload/v1549896001/piggy-bank-solid.png"
-              json.default_action do
-                json.type "web_url"
-                json.url "www.ledepargneur.fr"
-                json.messenger_extensions false
-              end
             else
               json.title "Ajoute une nouvelle cagnotte"
               json.image_url "https://res.cloudinary.com/dyvlvy5co/image/upload/v1549896001/piggy-bank-solid.png"
               json.subtitle "C'est l'idéal pour se faire plaisir 🏝"
               json.default_action do
                 json.type "web_url"
-                json.url "www.ledepargneur.fr"
+                json.url "https://www.ledepargneur.fr/cagnottes/new?messenger user id=#{@user.messenger_id}"
                 json.messenger_extensions false
               end
               json.buttons do

@@ -10,11 +10,6 @@ json.messages do
             if m == "message"
               json.title "Paramétre ta dépargne"
               json.image_url "https://res.cloudinary.com/dyvlvy5co/image/upload/v1551361347/pay.png"
-              json.default_action do
-                json.type "web_url"
-                json.url "www.ledepargneur.fr"
-                json.messenger_extensions false
-              end
             else
               json.title "Configure tes règles comme tu veux"
               json.image_url "https://res.cloudinary.com/dyvlvy5co/image/upload/v1551361347/pay.png"

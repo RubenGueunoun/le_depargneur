@@ -10,11 +10,6 @@ json.messages do
             if m == "message"
               json.title "Des règles d'épargnes adaptées à ton style de vie"
               json.image_url "https://res.cloudinary.com/dyvlvy5co/image/upload/v1551375468/engrenage.webp"
-              json.default_action do
-                json.type "web_url"
-                json.url "www.ledepargneur.fr"
-                json.messenger_extensions false
-              end
             elsif m == "pluie"
               json.title "J'aime pas la pluie"
               json.image_url "https://res.cloudinary.com/dyvlvy5co/image/upload/v1551375461/rain.png"
