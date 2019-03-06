@@ -54,6 +54,10 @@ class CagnottesController < ApplicationController
 
   def destroy
     user = User.find(@cagnotte.user_id)
+    montant = @cagnotte.montant
+    precaution = Cagnotte.find_by(user_id: user.id, objectif: "precaution")
+    precaution.montant += montant
+    precaution.save!
     @cagnotte.destroy
     if Rails.env == "development"
       redirect_to "http://localhost:3000/cagnottes/new?messenger user id=#{user.messenger_id}"

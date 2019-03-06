@@ -96,9 +96,8 @@
       <p><%= cagnotte.date unless cagnotte.date.nil? %></p>
       <%= link_to 'Modifier', edit_cagnotte_path(cagnotte), class: "btn-gris-sobre" %>
       |
-      <%= link_to 'Supprimer', cagnotte_path(cagnotte), method: :delete, data: { confirm: 'Tu es sûr de vouloir supprimer définitivement cette cagnotte ? ' }, class: "btn-gris-sobre" %>
+      <%= link_to 'Supprimer', cagnotte_path(cagnotte), method: :delete, data: { confirm: 'Tu es sûr de vouloir supprimer définitivement cette cagnotte ? L\'argent contenu sera transféré sur ta cagnotte de précaution ' }, class: "btn-gris-sobre" %>
     <% end %>
   </div>
-
 
 <% end %>
