@@ -17,6 +17,78 @@
   }
 }
 
+#versModalDynamique {
+  cursor: pointer;
+}
+
+#versModalFixe {
+  cursor: pointer;
+}
+
+#fermerDynamique {
+  color: white;
+  display: flex;
+  justify-content: flex-end;
+  padding: 3px 4px;
+  cursor: pointer;
+}
+
+#fermerDynamique i {
+  font-size: 16px;
+}
+
+#fermerFixe {
+  color: white;
+  display: flex;
+  justify-content: flex-end;
+  padding: 3px 4px;
+  cursor: pointer;
+}
+
+#fermerFixe i {
+  font-size: 16px;
+}
+
+
+.fond-gris {
+  position: fixed;
+  bottom: 0;
+  width: 100vw;
+  height: 100vh;
+  background-color: rgba(0 ,0 ,0, 0.65);
+}
+
+.modal-wrapper-dynamique {
+  position: fixed;
+  top: 20%;
+  left: 10%;
+  width: 80%;
+  background-color: #405C83;
+  border-radius: 5px;
+}
+
+.modal-wrapper-fixe {
+  position: fixed;
+  top: 18%;
+  left: 10%;
+  width: 80%;
+  background-color: #405C83;
+  border-radius: 5px;
+}
+
 .conteneur-modal-webview {
-  margin: 10px 50px;
+  margin: 25px 30px;
+}
+
+.webview-modal-content {
+  color: white;
+}
+
+.webview-modal-header {
+  text-align: center;
+  font-weight: bold;
+}
+
+.webview-modal-body {
+  font-size: 16px;
 }

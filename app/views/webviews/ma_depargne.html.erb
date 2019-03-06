@@ -19,7 +19,7 @@
   <div class="webview-depargne-choix-niveau">
     <div class="webview-depargne-title-et-infos">
       <h3>Dynamique</h3>
-      <div data-toggle="modal" data-target="#myModal_dynamique">
+      <div data-toggle="modal" data-target="#myModal_dynamique" id="versModalDynamique">
         <em>Comment ça marche ?</em>
       </div>
     </div>
@@ -182,7 +182,7 @@
     <div class="webview-depargne-choix-niveau">
     <div class="webview-depargne-title-et-infos">
       <h3>Fixe</h3>
-      <div data-toggle="modal" data-target="#myModal_fixe">
+      <div data-toggle="modal" data-target="#myModal_fixe" id="versModalFixe">
         <em>Comment ça marche ?</em>
       </div>
     </div>
@@ -351,3 +351,6 @@
 
 <%= render 'shared/modaldynamique' %>
 <%= render 'shared/modalfixe' %>
+
+<%= javascript_pack_tag 'footerDynamique' %>
+<%= javascript_pack_tag 'footerFixe' %>
