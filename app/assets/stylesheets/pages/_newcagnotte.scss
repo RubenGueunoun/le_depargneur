@@ -71,11 +71,16 @@
   font-size: 13px;
   select {
    font-size: 13px;
+   display: inline-block;
+   width: 32%;
+   border-radius: 4px;
   }
   input {
     font-size: 13px;
+    border-radius: 4px;
   }
 }
+
 
 .bar {
   /* font-size: 10px */
@@ -101,3 +106,4 @@
   position: absolute;
   opacity: 0;
 }
+

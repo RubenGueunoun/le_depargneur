@@ -16,7 +16,7 @@ json.messages do
               json.subtitle "C'est l'idéal pour se faire plaisir 🏝"
               json.default_action do
                 json.type "web_url"
-                json.url "https://www.ledepargneur.fr/cagnottes/new?messenger user id=#{@user.messenger_id}"
+                json.url "www.ledepargneur.fr"
                 json.messenger_extensions false
               end
               json.buttons do
