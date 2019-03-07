@@ -23,10 +23,9 @@ if @inscrit
 else
   json.messages do
     json.array! @message do
-      json.text "Tu as reçu ton token d\'activation ?
-      Peut-être souhaite tu modifier l'adresse mail donnée ?"
+      json.text "Hâte de dépargner !"
       json.quick_replies do
-        json.array! ["Je m'inscris", 'Nouveau mail'] do |action|
+        json.array! ["Je m'inscris", 'Modifier mail'] do |action|
           json.title action
           if action == "Je m'inscris"
             json.block_names ["inscription"]
