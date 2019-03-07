@@ -10,6 +10,7 @@ Rails.application.routes.draw do
       get 'gestiondepargne', to: 'chatfuels#gestiondepargne'
       get 'gestionssr', to: 'chatfuels#gestionssr'
       get 'menuquickreplies', to: 'chatfuels#menuquickreplies'
+      get 'redirecttomenu', to: 'chatfuels#redirecttomenu'
     end
   end
 

@@ -9,8 +9,7 @@ json.messages do
         elsif action == "Ma Dépargne"
           json.block_names ["depargne"]
         elsif action == "Cagnottes"
-          json.url "https://www.ledepargneur.fr/api/v1/gestioncagnottes?messenger user id=#{@user.messenger_id}"
-          json.type "json_plugin_url"
+          json.block_names ["+ cagnotte"]
         elsif action == "Smart Saving Rules"
           json.block_names ["ssr"]
         elsif action == "Paramètres"
