@@ -9,6 +9,7 @@ Rails.application.routes.draw do
       get 'gestioncagnottes', to: 'chatfuels#gestioncagnottes'
       get 'gestiondepargne', to: 'chatfuels#gestiondepargne'
       get 'gestionssr', to: 'chatfuels#gestionssr'
+      get 'menuquickreplies', to: 'chatfuels#menuquickreplies'
     end
   end
 

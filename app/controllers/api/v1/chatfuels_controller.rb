@@ -29,4 +29,7 @@ class Api::V1::ChatfuelsController < Api::V1::BaseController
     @message = ["message"]
   end
 
+  def menuquickreplies
+    @message = ["message"]
+  end
 end
