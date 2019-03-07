@@ -30,7 +30,12 @@ class Api::V1::ChatfuelsController < Api::V1::BaseController
   end
 
   def menuquickreplies
-    @user = User.find_by(messenger_id: params["messenger user id"])
+    @inscrit = false
+    if User.find_by(messenger_id: params["messenger user id"])
+      @inscrit = true
+    else
+      @inscrit = false
+    end
     @message = ["message"]
   end
 

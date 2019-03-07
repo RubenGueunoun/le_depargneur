@@ -20,12 +20,13 @@ puts 'Creating db...'
 user = User.create!(
   nom: 'Gueunoun',
   prenom: 'Ruben',
-  email: 'ruben.gueunoun@edhec.com',
+  email: 'ruben.gueunoun@test.com',
   password: '123456',
-  messenger_id: 1320234228077013,
+  messenger_id: 93794649642,
   profil_depargneur: 'normal'
   )
 
+#1320234228077013
 
 # Compte bancaire
 
