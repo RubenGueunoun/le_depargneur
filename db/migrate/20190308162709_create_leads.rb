@@ -8,6 +8,8 @@ class CreateLeads < ActiveRecord::Migration[5.2]
       t.string :status
       t.string :token
       t.boolean :inscrit
+
+      t.timestamps
     end
   end
 end

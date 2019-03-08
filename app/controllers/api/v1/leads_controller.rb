@@ -2,15 +2,14 @@ class Api::V1::LeadsController < Api::V1::BaseController
 
   def create
     @lead = Lead.new
-    @lead.messenger_id =
+    @lead.messenger_id = params["messenger user id"]
+    @lead.first_name = params["first name"]
+    @lead.last_name = params["last name"]
+    @lead.email_address = params["email_address"]
+    @lead.status = "new lead"
+    @lead.inscrit = false
+    authorize(@lead)
 
-    t.string "messenger_id"
-    t.string "first_name"
-    t.string "last_name"
-    t.string "email_address"
-    t.string "status"
-    t.string "token"
-    t.boolean "inscrit"
+    @lead.save
   end
-
 end
