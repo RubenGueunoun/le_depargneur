@@ -11,6 +11,7 @@ Rails.application.routes.draw do
       get 'gestionssr', to: 'chatfuels#gestionssr'
       get 'menuquickreplies', to: 'chatfuels#menuquickreplies'
       get 'redirecttomenu', to: 'chatfuels#redirecttomenu'
+      resources :leads, only: [:create]
     end
   end
 

@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_03_06_170816) do
+ActiveRecord::Schema.define(version: 2019_03_08_144902) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -59,6 +59,16 @@ ActiveRecord::Schema.define(version: 2019_03_06_170816) do
     t.string "localisation"
     t.index ["smart_saving_rule_id"], name: "index_epargnes_on_smart_saving_rule_id"
     t.index ["user_id"], name: "index_epargnes_on_user_id"
+  end
+
+  create_table "leads", force: :cascade do |t|
+    t.bigint "messenger_id"
+    t.string "first_name"
+    t.string "last_name"
+    t.string "email_address"
+    t.string "status"
+    t.string "token"
+    t.boolean "inscrit"
   end
 
   create_table "operations", force: :cascade do |t|
