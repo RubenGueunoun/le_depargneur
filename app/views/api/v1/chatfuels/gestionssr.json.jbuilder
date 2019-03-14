@@ -22,7 +22,7 @@ json.messages do
               json.buttons do
                 json.array! [m] do
                   json.type "web_url"
-                  json.url "https://www.ledepargneur.fr/ssr_pluie?messenger user id=#{@user_mi}"
+                  json.url "https://www.ledepargneur.fr/ssr_pluie?messenger user id=#{@user.messenger_id}"
                   json.title "Paramétrer"
                 end
               end
@@ -38,7 +38,7 @@ json.messages do
               json.buttons do
                 json.array! [m] do
                   json.type "web_url"
-                  json.url "https://www.ledepargneur.fr/ssr_cigarette?messenger user id=#{@user_mi}"
+                  json.url "https://www.ledepargneur.fr/ssr_cigarette?messenger user id=#{@user.messenger_id}"
                   json.title "Paramétrer"
                 end
               end
@@ -54,7 +54,7 @@ json.messages do
               json.buttons do
                 json.array! [m] do
                   json.type "web_url"
-                  json.url "https://www.ledepargneur.fr/ssr_virement?messenger user id=#{@user_mi}"
+                  json.url "https://www.ledepargneur.fr/ssr_virement?messenger user id=#{@user.messenger_id}"
                   json.title "Paramétrer"
                 end
               end

@@ -22,7 +22,7 @@ json.messages do
               json.buttons do
                 json.array! [m] do
                   json.type "web_url"
-                  json.url "https://www.ledepargneur.fr/ma_depargne?messenger user id=#{@user_mi}"
+                  json.url "https://www.ledepargneur.fr/ma_depargne?messenger user id=#{@user.messenger_id}"
                   json.title "Gérer"
                 end
               end

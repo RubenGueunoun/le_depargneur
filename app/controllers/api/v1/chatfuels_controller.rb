@@ -53,6 +53,6 @@ class Api::V1::ChatfuelsController < Api::V1::BaseController
   private
 
   def find_user
-    @user = User.where(messenger_id: params["messenger user id"])
+    @user = User.find_by(messenger_id: params["messenger user id"])
   end
 end
