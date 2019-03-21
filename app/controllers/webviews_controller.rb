@@ -1,6 +1,6 @@
 class WebviewsController < ApplicationController
-  skip_before_action :authenticate_user!, only: [:show_cb, :show_cagnotte, :associer_ssr, :ma_depargne, :ssr_pluie, :ssr_cigarette, :ssr_virement]
-  before_action :find_user, only: [:show_cb, :show_cagnotte, :associer_ssr, :ma_depargne, :ssr_pluie, :ssr_cigarette, :ssr_virement]
+  skip_before_action :authenticate_user!, only: [:show_cb, :show_cagnotte, :associer_ssr, :ma_depargne, :ssr_pluie, :ssr_cigarette, :ssr_virement, :test]
+  before_action :find_user, only: [:show_cb, :show_cagnotte, :associer_ssr, :ma_depargne, :ssr_pluie, :ssr_cigarette, :ssr_virement, :test]
 
   def show_cb
     @cb = CompteBancaire.find(params[:cb_id])
