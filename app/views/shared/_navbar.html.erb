@@ -1,4 +1,4 @@
-<% if ["/show_cb", "/show_cagnotte", "/cagnottes/new", "/associer_ssr", "/ma_depargne", "/ssr_pluie", "/ssr_cigarette", "/ssr_virement"].include?(request.env["REQUEST_PATH"]) %>
+<% if ["/show_cb", "/show_cagnotte", "/cagnottes/new", "/associer_ssr", "/ma_depargne", "/ssr_pluie", "/ssr_cigarette", "/ssr_virement", "/token_already_used"].include?(request.env["REQUEST_PATH"]) %>
 <% elsif request.env["REQUEST_PATH"].match?(/\Dcagnottes\D\d+\Dedit/) %>
 <% else %>
   <div class="navbar-wagon">

@@ -871,14 +871,5 @@ epargne2 = Epargne.new(
   )
 epargne1.save!
 
-  create_table "leads", force: :cascade do |t|
-    t.bigint "messenger_id"
-    t.string "first_name"
-    t.string "last_name"
-    t.string "email_address"
-    t.string "status"
-    t.string "token"
-    t.boolean "inscrit"
-
 
 puts "All done"

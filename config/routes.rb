@@ -5,6 +5,8 @@ Rails.application.routes.draw do
   root to: 'pages#home'
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
 
+  get 'token_already_used', to: 'pages#token_already_used'
+
   namespace :api, defaults: { format: :json } do
     namespace :v1 do
       get 'relevedecomptes', to: 'chatfuels#relevedecomptes'

@@ -16,7 +16,7 @@ class Users::RegistrationsController < Devise::RegistrationsController
     token_list.each do |tok|
       if (tok[:name] == @token_user && tok[:used] == "no")
         @valid = true
-        tok[:used] = "yes"
+        #tok[:used] = "yes"
       end
     end
     CSV.open(filepath, 'wb', csv_options) { |csv| token_list.each { |tok| csv << [tok[:name], tok[:used]] } }
@@ -26,6 +26,17 @@ class Users::RegistrationsController < Devise::RegistrationsController
   # POST /resource
   def create
     super
+    token_list = []
+    token_user = current_user.registration_token
+    filepath = Rails.root.join('app', 'assets', 'data', 'token_depargneur.csv')
+    csv_options = { col_sep: ',' }
+    CSV.foreach(filepath, csv_options) { |row| token_list << { name: row[0], used: row[1] } }
+    token_list.each do |tok|
+      if (tok[:name] == token_user && tok[:used] == "no")
+        tok[:used] = "yes"
+      end
+    end
+    CSV.open(filepath, 'wb', csv_options) { |csv| token_list.each { |tok| csv << [tok[:name], tok[:used]] } }
   end
 
   # GET /resource/edit
@@ -56,8 +67,10 @@ class Users::RegistrationsController < Devise::RegistrationsController
 
   # If you have extra params to permit, append them to the sanitizer.
   # def configure_sign_up_params
-  #   devise_parameter_sanitizer.permit(:sign_up, keys: [:attribute])
+    # devise_parameter_sanitizer.permit(:sign_up, keys: [:attribute])
   # end
+
+
 
   # If you have extra params to permit, append them to the sanitizer.
   # def configure_account_update_params
