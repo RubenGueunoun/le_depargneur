@@ -10,7 +10,7 @@ Félicitations, tu peux désormais t'inscrire en cliquant sur le bouton ci-desso
           json.buttons do
             json.array! ["b"] do
               json.type "web_url"
-              json.url "https://www.ledepargneur.fr/users/sign_up?token=#{@token_user}"
+              json.url "https://www.ledepargneur.fr/users/sign_up?token=#{@token_user}&messenger_user_id=#{@user_mi}&nom=#{@nom}&prenom=#{@prenom}"
               json.title "Je m'inscris"
             end
           end

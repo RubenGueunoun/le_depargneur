@@ -42,6 +42,9 @@ class Api::V1::ChatfuelsController < Api::V1::BaseController
   end
 
   def veriftoken
+    @nom = params["last name"]
+    @prenom = params["first name"]
+    @user_mi = params["messenger user id"]
     @message = ["message"]
     token_list = []
     @token_user = params["inscription_token"]
