@@ -43,12 +43,12 @@ class Api::V1::ChatfuelsController < Api::V1::BaseController
 
   def veriftoken
     @message = ["message"]
-    token_list = [{name:"8C523",used:"no"},{name:"BDC7B",used:"no"},{name:"77A9A",used:"no"},{name:"346EC",used:"no"},{name:"92B13",used:"no"},{name:"B51C4",used:"no"}]
+    token_list = []
     @token_user = params["inscription_token"]
     @valid = false
-    filepath = "/Users/rubengueunoun/code/RubenGueunoun/le_depargneur/app/assets/data/token_depargneur.csv"
+    filepath = Rails.root.join('app', 'assets', 'data', 'token_depargneur.csv')
     csv_options = { col_sep: ',' }
-    #CSV.foreach(filepath, csv_options) { |row| token_list << { name: row[0], used: row[1] } }
+    CSV.foreach(filepath, csv_options) { |row| token_list << { name: row[0], used: row[1] } }
     token_list.each do |tok|
       if tok[:name] == @token_user
         @valid = true
