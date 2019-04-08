@@ -1,4 +1,4 @@
-<% if ["/show_cb", "/show_cagnotte", "/cagnottes/new", "/associer_ssr", "/ma_depargne", "/ssr_pluie", "/ssr_cigarette", "/ssr_virement", "/token_already_used"].include?(request.env["REQUEST_PATH"]) %>
+<% if ["/show_cb", "/show_cagnotte", "/cagnottes/new", "/associer_ssr", "/ma_depargne", "/ssr_pluie", "/ssr_cigarette", "/ssr_virement", "/token_already_used","/users/sign_up", "/users"].include?(request.env["REQUEST_PATH"]) %>
 <% elsif request.env["REQUEST_PATH"].match?(/\Dcagnottes\D\d+\Dedit/) %>
 <% else %>
   <div class="navbar-wagon">
@@ -10,7 +10,7 @@
     <% if user_signed_in? %>
 
       <!-- Right Navigation -->
-      <div class="navbar-wagon-right hidden-xs hidden-sm">
+      <div class="navbar-wagon-right">
         <%= link_to 'Profile', edit_user_password_path, class: "navbar-wagon-item navbar-wagon-link" %>
         <%= link_to 'Log Out', destroy_user_session_path, method: :delete, class: "navbar-wagon-item navbar-wagon-link" %>
       </div>
@@ -18,7 +18,7 @@
     <% else %>
 
       <!-- Right Navigation -->
-      <div class="navbar-wagon-right hidden-xs hidden-sm">
+      <div class="navbar-wagon-right">
         <%= link_to 'Sign Up', new_user_registration_path, class: "navbar-wagon-item navbar-wagon-link" %>
         <%= link_to 'Log In', new_user_session_path, class: "navbar-wagon-item navbar-wagon-link" %>
       </div>

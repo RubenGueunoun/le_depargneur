@@ -1,40 +1,58 @@
-<h2>Sign up</h2>
-
-<%= simple_form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
-  <%= f.error_notification %>
-
-  <div class="form-inputs">
-    <%= f.input :prenom,
-                required: true,
-                input_html: { value: params["prenom"] } %>
-    <%= f.input :nom,
-                required: true,
-                input_html: { value: params["nom"] } %>
-    <%= f.input :email,
-                required: true,
-                autofocus: true ,
-                input_html: { autocomplete: "email" }%>
-    <%= f.input :password,
-                required: true,
-                hint: ("#{@minimum_password_length} characters minimum" if @minimum_password_length),
-                input_html: { autocomplete: "new-password" } %>
-    <%= f.input :password_confirmation,
-                required: true,
-                input_html: { autocomplete: "new-password" } %>
-    <%= f.input :registration_token,
-                input_html: { value: params["token"] },
-                as: :hidden,
-                require: true %>
-    <%= f.input :messenger_id,
-                input_html: { value: params["messenger_user_id"] },
-                as: :hidden,
-                require: true %>
+<div class="webview-banner-show-cb center-flex-box">
+  <div class="sign-up-banner">
+    <h3>Crée ton compte gratuitement</h3>
+    <h2>Et deviens Dépargneur</h2>
   </div>
+</div>
 
-  <div class="form-actions">
-    <%= f.button :submit, "Sign up" %>
+<div class="logo-sign-up">
+  <%= image_tag "logo.png" %>
+</div>
+
+<div class="box-signup">
+  <div class="conteneur-signup">
+    <%= simple_form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
+      <%= f.error_notification %>
+
+      <div class="form-inputs">
+        <%= f.input :prenom,
+                    required: true,
+                    input_html: { value: params["prenom"] } %>
+        <%= f.input :nom,
+                    required: true,
+                    input_html: { value: params["nom"] } %>
+        <%= f.input :email,
+                    required: true,
+                    autofocus: true ,
+                    input_html: { autocomplete: "email" }%>
+        <%= f.input :password,
+                    required: true,
+                    hint: ("#{@minimum_password_length} characters minimum" if @minimum_password_length),
+                    input_html: { autocomplete: "new-password" } %>
+        <%= f.input :password_confirmation,
+                    required: true,
+                    input_html: { autocomplete: "new-password" } %>
+        <%= f.input :registration_token,
+                    input_html: { value: params["token"] },
+                    as: :hidden,
+                    require: true %>
+        <%= f.input :messenger_id,
+                    input_html: { value: params["messenger_user_id"] },
+                    as: :hidden,
+                    require: true %>
+      </div>
+
+      <div class="form-actions">
+        <div class="position-boutton-valider">
+          <%= f.button :submit, "Inscription", class:"boutton-valider" %>
+        </div>
+      </div>
+    <% end %>
+
   </div>
-<% end %>
-
-<%= render "users/shared/links" %>
+</div>
+<div class="conteneur-conditions">
+  <p class="conditions">En cliquant sur 'Inscription', j'accepte les <a href="#">Conditions Générales d'Utilisation</a> du Dépargneurⓒ.</p>
+</div>
+<!-- <%= render "users/shared/links" %> -->
 
