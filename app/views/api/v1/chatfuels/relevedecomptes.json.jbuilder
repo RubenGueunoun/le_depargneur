@@ -1,4 +1,4 @@
-if @cb == nil
+if @cb[0] == nil
   json.messages do
     json.array! @message do
       json.attachment do
