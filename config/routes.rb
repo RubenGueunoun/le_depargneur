@@ -16,6 +16,7 @@ Rails.application.routes.draw do
       get 'menuquickreplies', to: 'chatfuels#menuquickreplies'
       get 'redirecttomenu', to: 'chatfuels#redirecttomenu'
       get 'veriftoken', to: 'chatfuels#veriftoken'
+      get 'parametres', to: 'chatfuels#parametres'
       resources :leads, only: [:create]
     end
   end

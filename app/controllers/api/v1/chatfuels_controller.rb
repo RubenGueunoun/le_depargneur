@@ -1,7 +1,7 @@
 require 'csv'
 
 class Api::V1::ChatfuelsController < Api::V1::BaseController
-  before_action :find_user, only: [:relevedecomptes, :gestioncagnottes, :gestiondepargne, :gestionssr, :redirecttomenu]
+  before_action :find_user, only: [:relevedecomptes, :gestioncagnottes, :gestiondepargne, :gestionssr, :redirecttomenu, :profile]
 
   def relevedecomptes
     @cb = CompteBancaire.where(user: @user)
@@ -57,6 +57,24 @@ class Api::V1::ChatfuelsController < Api::V1::BaseController
         @valid = true
       end
     end
+  end
+
+  def parametres
+    @message = ["message"]
+    @buttons = [
+      {
+        url: "https://www.ledepargneur.fr",
+        title: "Profile",
+      },
+      {
+        url: "https://www.ledepargneur.fr",
+        title: "+ Banque",
+      },
+      {
+        block_names: ["pause"],
+        title: "Pause",
+      }
+    ]
   end
 
   private
