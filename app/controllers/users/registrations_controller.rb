@@ -17,7 +17,6 @@ class Users::RegistrationsController < Devise::RegistrationsController
     token_list.each do |tok|
       if (tok[:name] == @token_user && tok[:used] == "no")
         @valid = true
-        #tok[:used] = "yes"
       end
     end
     CSV.open(filepath, 'wb', csv_options) { |csv| token_list.each { |tok| csv << [tok[:name], tok[:used]] } }
@@ -27,17 +26,19 @@ class Users::RegistrationsController < Devise::RegistrationsController
   # POST /resource
   def create
     super
-    token_list = []
-    token_user = current_user.registration_token
-    filepath = Rails.root.join('app', 'assets', 'data', 'token_depargneur.csv')
-    csv_options = { col_sep: ',' }
-    CSV.foreach(filepath, csv_options) { |row| token_list << { name: row[0], used: row[1] } }
-    token_list.each do |tok|
-      if (tok[:name] == token_user && tok[:used] == "no")
-        tok[:used] = "yes"
+    if current_user
+      token_list = []
+      token_user = current_user.registration_token
+      filepath = Rails.root.join('app', 'assets', 'data', 'token_depargneur.csv')
+      csv_options = { col_sep: ',' }
+      CSV.foreach(filepath, csv_options) { |row| token_list << { name: row[0], used: row[1] } }
+      token_list.each do |tok|
+        if (tok[:name] == token_user && tok[:used] == "no")
+          tok[:used] = "yes"
+        end
       end
+      CSV.open(filepath, 'wb', csv_options) { |csv| token_list.each { |tok| csv << [tok[:name], tok[:used]] } }
     end
-    CSV.open(filepath, 'wb', csv_options) { |csv| token_list.each { |tok| csv << [tok[:name], tok[:used]] } }
   end
 
   # GET /resource/edit
@@ -64,7 +65,7 @@ class Users::RegistrationsController < Devise::RegistrationsController
   #   super
   # end
 
-  # protected
+  protected
 
   # If you have extra params to permit, append them to the sanitizer.
   # def configure_sign_up_params
@@ -79,9 +80,9 @@ class Users::RegistrationsController < Devise::RegistrationsController
   # end
 
   # The path used after sign up.
-  # def after_sign_up_path_for(resource)
-  #   super(resource)
-  # end
+  def after_sign_up_path_for(resource)
+    :pre_created
+  end
 
   # The path used after sign up for inactive accounts.
   # def after_inactive_sign_up_path_for(resource)

@@ -53,7 +53,7 @@ class Api::V1::ChatfuelsController < Api::V1::BaseController
     csv_options = { col_sep: ',' }
     CSV.foreach(filepath, csv_options) { |row| token_list << { name: row[0], used: row[1] } }
     token_list.each do |tok|
-      if tok[:name] == @token_user
+      if tok[:name] == @token_user && tok[:used] == "no"
         @valid = true
       end
     end

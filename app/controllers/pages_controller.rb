@@ -6,4 +6,7 @@ class PagesController < ApplicationController
 
   def token_already_used
   end
+
+  def pre_created
+  end
 end

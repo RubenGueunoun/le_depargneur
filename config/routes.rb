@@ -27,6 +27,7 @@ Rails.application.routes.draw do
   get 'ssr_cigarette', to: 'webviews#ssr_cigarette'
   get 'ssr_virement', to: 'webviews#ssr_virement'
   get 'associer_ssr', to: 'webviews#associer_ssr'
+  get 'pre_created', to: 'pages#pre_created'
 
 
   resources :cagnottes, only: [ :new, :create, :edit, :update, :destroy ]
