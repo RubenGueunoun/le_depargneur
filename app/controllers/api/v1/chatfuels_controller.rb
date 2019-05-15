@@ -64,15 +64,15 @@ class Api::V1::ChatfuelsController < Api::V1::BaseController
     @buttons = [
       {
         url: "https://www.ledepargneur.fr",
-        title: "Profile",
+        title: "Mon Profile",
       },
       {
         url: "https://www.ledepargneur.fr",
-        title: "+ Banque",
+        title: "Ajouter ma Banque",
       },
       {
         block_names: ["pause"],
-        title: "Pause",
+        title: "Mettre en Pause",
       }
     ]
   end
