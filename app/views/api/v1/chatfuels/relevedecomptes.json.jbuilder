@@ -1,4 +1,11 @@
 if @cb[0] == nil
+
+  json.messages do
+    json.array! @message do
+      json.text "#{@user.prenom}, je n'ai pas encore accès à tes comptes 😞"
+    end
+  end
+
   json.messages do
     json.array! @message do
       json.attachment do
@@ -10,12 +17,12 @@ if @cb[0] == nil
             json.array! ["parametres"] do
               json.title "Connecte ta Banque au dépargneur"
               json.image_url "https://res.cloudinary.com/dyvlvy5co/image/upload/v1557927419/bank.png"
-              json.subtitle "Le fonctionnement du dépargneur nécessite un accès à ta banque. Cet accès est 100\% sécurisé par Budget Insight©"
+              json.subtitle "Cet accès est 100\% sécurisé par notre partenaire Budget Insight©"
               json.buttons do
                 json.array! ["button"] do
                   json.type "web_url"
                   json.url "https://www.ledepargneur.fr"
-                  json.title "Ajoute ma Banque"
+                  json.title "Ajouter ma Banque"
                 end
               end
             end
@@ -24,7 +31,15 @@ if @cb[0] == nil
       end
     end
   end
+
 else
+
+  json.messages do
+    json.array! @message do
+      json.text "#{@user.prenom}, voici tes comptes aujourd'hui 🤑"
+    end
+  end
+
   json.messages do
     json.array! @message do
       json.attachment do
@@ -73,4 +88,28 @@ else
       end
     end
   end
+
+  json.messages do
+    json.array! @message do
+      json.attachment do
+        json.type "template"
+        json.payload do
+          json.template_type "button"
+          json.text "Coup de 👍 ou de coup de 👎 ?"
+          json.buttons do
+            json.array! ["Déposer", "Retirer"] do |titre|
+              json.type "show_block"
+              if titre == "Déposer"
+                json.block_names ["deposer"]
+              else
+                json.block_names ["retirer"]
+              end
+              json.title titre
+            end
+          end
+        end
+      end
+    end
+  end
+
 end
