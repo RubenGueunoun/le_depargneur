@@ -29,6 +29,7 @@ Rails.application.routes.draw do
   get 'ssr_virement', to: 'webviews#ssr_virement'
   get 'associer_ssr', to: 'webviews#associer_ssr'
   get 'pre_created', to: 'pages#pre_created'
+  get 'profile', to: 'webviews#profile'
 
 
   resources :cagnottes, only: [ :new, :create, :edit, :update, :destroy ]

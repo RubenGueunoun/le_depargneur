@@ -1,6 +1,6 @@
 class WebviewsController < ApplicationController
-  skip_before_action :authenticate_user!, only: [:show_cb, :show_cagnotte, :associer_ssr, :ma_depargne, :ssr_pluie, :ssr_cigarette, :ssr_virement, :test]
-  before_action :find_user, only: [:show_cb, :show_cagnotte, :associer_ssr, :ma_depargne, :ssr_pluie, :ssr_cigarette, :ssr_virement, :test]
+  skip_before_action :authenticate_user!, only: [:show_cb, :show_cagnotte, :associer_ssr, :ma_depargne, :ssr_pluie, :ssr_cigarette, :ssr_virement, :test, :profile]
+  before_action :find_user, only: [:show_cb, :show_cagnotte, :associer_ssr, :ma_depargne, :ssr_pluie, :ssr_cigarette, :ssr_virement, :test, :profile]
 
   def show_cb
     @cb = CompteBancaire.find(params[:cb_id])
@@ -122,6 +122,11 @@ class WebviewsController < ApplicationController
     }
     @epargne = Epargne.new()
     authorize(@epargne)
+  end
+
+  def profile
+    @user = User.find_by(messenger_id:  @user_mi)
+    authorize(@user)
   end
 
   private
