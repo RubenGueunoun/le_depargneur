@@ -64,7 +64,7 @@ else
                     json.url "https://www.ledepargneur.fr/show_cb?cb_id=#{compte.id}&messenger user id=#{compte.user.messenger_id}"
                     json.title "Compte Courant"
                     json.webview_height_ratio "full"
-                    json.messenger_extensions false
+                    json.messenger_extensions true
                   end
                 end
               else
