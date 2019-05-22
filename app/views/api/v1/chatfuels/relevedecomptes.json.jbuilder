@@ -63,7 +63,7 @@ else
                     json.type "web_url"
                     json.url "https://www.ledepargneur.fr/show_cb?cb_id=#{compte.id}&messenger user id=#{compte.user.messenger_id}"
                     json.title "Compte Courant"
-                    json.webview_height_ratio "full"
+                    json.webview_height_ratio "tall"
                     json.messenger_extensions true
                   end
                 end
@@ -74,7 +74,7 @@ else
                 json.default_action do
                   json.type "web_url"
                   json.url "https://www.ledepargneur.fr"
-                  json.messenger_extensions false
+                  json.messenger_extensions true
                 end
                 json.buttons do
                   json.array! [compte] do
@@ -82,7 +82,7 @@ else
                     json.url "https://www.ledepargneur.fr/show_cagnotte?cagnotte_id=#{compte.id}&messenger user id=#{compte.user.messenger_id}"
                     json.title "Cagnotte \"#{compte.objectif}\""
                     json.webview_height_ratio "tall"
-                    json.messenger_extensions false
+                    json.messenger_extensions true
                   end
                 end
               end

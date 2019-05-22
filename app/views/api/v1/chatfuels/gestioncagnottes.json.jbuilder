@@ -24,6 +24,8 @@ json.messages do
                   json.type "web_url"
                   json.url "https://www.ledepargneur.fr/cagnottes/new?messenger user id=#{@user.messenger_id}"
                   json.title "Ajouter"
+                  json.webview_height_ratio "tall"
+                  json.messenger_extensions true
                 end
               end
             end

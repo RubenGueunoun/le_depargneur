@@ -24,6 +24,8 @@ json.messages do
                   json.type "web_url"
                   json.url "https://www.ledepargneur.fr/ssr_pluie?messenger user id=#{@user.messenger_id}"
                   json.title "Paramétrer"
+                  json.webview_height_ratio "tall"
+                  json.messenger_extensions true
                 end
               end
             elsif m == "cigarette"
@@ -40,6 +42,8 @@ json.messages do
                   json.type "web_url"
                   json.url "https://www.ledepargneur.fr/ssr_cigarette?messenger user id=#{@user.messenger_id}"
                   json.title "Paramétrer"
+                  json.webview_height_ratio "tall"
+                  json.messenger_extensions true
                 end
               end
             else
@@ -56,6 +60,8 @@ json.messages do
                   json.type "web_url"
                   json.url "https://www.ledepargneur.fr/ssr_virement?messenger user id=#{@user.messenger_id}"
                   json.title "Paramétrer"
+                  json.webview_height_ratio "tall"
+                  json.messenger_extensions true
                 end
               end
             end
