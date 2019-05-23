@@ -1,6 +1,7 @@
 source 'https://rubygems.org'
 ruby '2.4.4'
 
+gem 'rest-client'
 gem 'devise'
 gem 'pundit'
 gem "simple_token_authentication"
