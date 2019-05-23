@@ -30,6 +30,7 @@ Rails.application.routes.draw do
   get 'associer_ssr', to: 'webviews#associer_ssr'
   get 'pre_created', to: 'pages#pre_created'
   get 'profile', to: 'webviews#profile'
+  get 'connected_account', to: 'pages#connected_account'
 
 
   resources :cagnottes, only: [ :new, :create, :edit, :update, :destroy ]
