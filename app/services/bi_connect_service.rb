@@ -16,7 +16,7 @@
 
 begin
   require 'rubygems'
-  require 'rest_client'
+  # require 'rest_client'
 rescue LoadError
   puts %{
   I'm so sorry to ask you for the rest_client gem. \
