@@ -22,8 +22,8 @@ class PagesController < ApplicationController
     if params["code"]
       response = BiConnectService.new(params["code"], "/connected_account").call
       current_user.bi_token = response["access_token"]
+      @valid = true unless response["error"]
       current_user.save
-      @valid = true
     end
   end
 
