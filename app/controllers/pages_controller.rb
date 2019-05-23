@@ -20,8 +20,8 @@ class PagesController < ApplicationController
 
   def connected_account
     if params["code"]
-      client.handleCallback(received_params)
-      current_user.bi_token = client.access_token
+      response = BiConnectService.new(params["code"], "/connected_account").call
+      current_user.bi_token = response
       current_user.save
       @valid = true
     end
