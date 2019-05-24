@@ -1,61 +1,25 @@
-<% if @valid %>
-  <div class="webview-banner-show-cb center-flex-box">
-    <div class="sign-up-banner">
-      <h2>Connexion réussie !</h2>
-    </div>
+
+<div class="webview-banner-show-cb center-flex-box">
+  <div class="sign-up-banner">
+    <h2>Connexion réussie !</h2>
   </div>
+</div>
 
-  <div class="box-signup">
-    <div class="conteneur-signup">
-      <p>Ton compte bancaire est désormais connecté au Dépargneur</p>
-      <p>Retourne sur la discussion pour parémetrer ta dépargne et commencer à mettre de côté 😎</p>
-    </div>
+<div class="box-signup">
+  <div class="conteneur-signup">
+    <p>Ton compte bancaire est désormais connecté au Dépargneur</p>
+    <p>Retourne sur la discussion pour parémetrer ta dépargne et commencer à mettre de côté 😎</p>
   </div>
+</div>
 
-  <div class="logo-created">
-    <i class="fas fa-check-circle" style="color: #7EAC08;"></i>
-  </div>
-
-
-  <hr>
-
-  <div class="logo-sign-up">
-    <%= image_tag "logo.png" %>
-  </div>
+<div class="logo-created">
+  <i class="fas fa-check-circle" style="color: #7EAC08;"></i>
+</div>
 
 
-<% else %>
+<hr>
 
-  <div class="webview-banner-show-cb center-flex-box">
-    <div class="sign-up-banner">
-      <h2>Echec de la connexion</h2>
-    </div>
-  </div>
-
-  <div class="box-signup">
-    <div class="conteneur-signup">
-      <p>Ton compte bancaire n'a pas pu être connecté au dépargneur.</p>
-      <p>Réessaye ci-dessous 👇</p>
-    </div>
-  </div>
-
-  <div class="logo-created">
-    <i class="fas fa-times-circle" style="color: #FC0707;"></i>
-  </div>
-
-  <hr>
-
-  <div class="position-boutton-valider">
-    <a class="boutton-valider" href=<%= @url %>>Connecter mon Compte bancaire</a>
-  </div>
-
-
-  <hr>
-
-
-  <div class="logo-sign-up">
-    <%= image_tag "logo.png" %>
-  </div>
-
-<% end %>
+<div class="logo-sign-up">
+  <%= image_tag "logo.png" %>
+</div>
 

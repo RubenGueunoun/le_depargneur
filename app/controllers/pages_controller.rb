@@ -11,7 +11,11 @@ class PagesController < ApplicationController
   end
 
   def pre_created
-    redirect_url = "https:%2F%2Fwww.ledepargneur.fr%2Fconnected_account"
+    if Rails.env == "development"
+      redirect_url = "http:%2F%2Flocalhost:3000%2Fconnected_account"
+    else
+      redirect_url = "https:%2F%2Fwww.ledepargneur.fr%2Fconnected_account"
+    end
     @url = "https://depargneur.biapi.pro/2.0/auth/webview/connect/select?client_id=#{ENV['BI_CLIENT_ID']}&redirect_uri=#{redirect_url}"
   end
 
