@@ -31,6 +31,7 @@ Rails.application.routes.draw do
   get 'pre_created', to: 'pages#pre_created'
   get 'profile', to: 'webviews#profile'
   get 'connected_account', to: 'pages#connected_account'
+  get 'synchronized_data', to: 'pages#synchronized_data'
 
 
   resources :cagnottes, only: [ :new, :create, :edit, :update, :destroy ]

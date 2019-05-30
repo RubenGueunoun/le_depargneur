@@ -2,7 +2,7 @@ require 'ostruct'
 require 'json'
 
 class PagesController < ApplicationController
-  skip_before_action :authenticate_user!, only: [:home, :token_already_used, :connected_account]
+  skip_before_action :authenticate_user!, only: [:home, :token_already_used, :connected_account, :synchronized_data]
 
   def home
   end
@@ -31,4 +31,10 @@ class PagesController < ApplicationController
     end
   end
 
+  def synchronized_data
+    user = User.first
+    cb = user.compte_bancaires[0]
+    cb.solde = params[:connections][:accounts][:balance].to_i
+    cb.save
+  end
 end
