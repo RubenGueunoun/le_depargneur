@@ -34,7 +34,7 @@ class PagesController < ApplicationController
   def synchronized_data
     user = User.first
     cb = user.compte_bancaires[0]
-    cb.solde = params[:connections][:accounts][:balance].to_i
+    cb.solde = params[:connections][0][:accounts][0][:balance].to_i
     cb.save
   end
 end
