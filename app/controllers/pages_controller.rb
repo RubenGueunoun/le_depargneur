@@ -23,18 +23,11 @@ class PagesController < ApplicationController
     if params["code"]
       response = JSON.parse(BiConnectService.new(params["code"], "/connected_account").call)
       if response["access_token"]
-        current_user.bi_token = response["access_token"]
+        current_user.bi_token = "Bearer #{response["access_token"]}"
         current_user.cb_status = "connected"
       end
       @valid = true unless response["error"]
       current_user.save
     end
-  end
-
-  def synchronized_data
-    user = User.first
-    cb = user.compte_bancaires[0]
-    cb.solde = params[:connections][0][:accounts][0][:balance].to_i
-    cb.save
   end
 end

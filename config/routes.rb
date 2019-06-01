@@ -31,7 +31,10 @@ Rails.application.routes.draw do
   get 'pre_created', to: 'pages#pre_created'
   get 'profile', to: 'webviews#profile'
   get 'connected_account', to: 'pages#connected_account'
-  get 'synchronized_data', to: 'pages#synchronized_data'
+
+  namespace :budgea, defaults: { format: :json } do
+    post 'synchronized_data', to: 'webhooks#synchronized_data'
+  end
 
 
   resources :cagnottes, only: [ :new, :create, :edit, :update, :destroy ]
