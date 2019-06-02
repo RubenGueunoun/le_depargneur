@@ -9,6 +9,7 @@ class Budgea::WebhooksController < Api::V1::BaseController
     end
     cb = user.compte_bancaires[0]
     cb.solde = params["connections"][0]["accounts"][0]["balance"]
+    cb.numero_compte = rand(10_000)
     cb.save!
   end
 
