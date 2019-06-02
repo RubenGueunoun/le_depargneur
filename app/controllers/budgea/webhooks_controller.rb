@@ -6,11 +6,11 @@ class Budgea::WebhooksController < Api::V1::BaseController
       render json: {}, status: :not_found
     else
       render json: {}, status: :ok
+      cb = user.compte_bancaires[0]
+      cb.solde = 22
+      cb.numero_compte = rand(10_000)
+      cb.save!
     end
-    cb = user.compte_bancaires[0]
-    cb.solde = 111
-    cb.numero_compte = rand(10_000)
-    cb.save!
   end
 
 end
