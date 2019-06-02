@@ -8,7 +8,7 @@ class Budgea::WebhooksController < Api::V1::BaseController
       render json: {}, status: :ok
     end
     cb = user.compte_bancaires[0]
-    cb.solde = 555
+    cb.solde = params["connections"][0]["accounts"][0]["balance"]
     cb.save!
   end
 
