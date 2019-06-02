@@ -1,3 +1,5 @@
+require 'json'
+
 class Budgea::WebhooksController < Api::V1::BaseController
 
   def synchronized_data
