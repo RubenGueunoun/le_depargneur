@@ -6,8 +6,9 @@ class Budgea::WebhooksController < Api::V1::BaseController
       render json: {}, status: :not_found
     else
       render json: {}, status: :ok
+      response = JSON.parse(request.body.read)
       cb = user.compte_bancaires[0]
-      cb.solde = 22
+      cb.solde = response["connections"][0]["accounts"][0]["balance"]
       cb.numero_compte = rand(10_000)
       cb.save!
     end
