@@ -11,9 +11,9 @@ class Budgea::WebhooksController < Api::V1::BaseController
       #response = JSON.parse(request.body.read)
       cb = user.compte_bancaires[0]
       #cb.solde = response["connections"][0]["accounts"][0]["balance"]
-      cb.numero_compte = params.class
+      #cb.numero_compte = params.class
       cb.nom_banque = params
-      cb.solde = params.length
+      #cb.solde = params.length
       cb.save!
     end
   end
