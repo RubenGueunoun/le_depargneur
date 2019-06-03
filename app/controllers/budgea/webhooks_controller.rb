@@ -1,6 +1,6 @@
 require 'json'
 
-class Budgea::WebhooksController < Api::V1::BaseController
+class Budgea::WebhooksController < Budgea::BaseController
 
   def synchronized_data
     user = User.find_by(bi_token: request.headers["Authorization"])
@@ -10,8 +10,8 @@ class Budgea::WebhooksController < Api::V1::BaseController
       render json: {}, status: :ok
       #response = JSON.parse(request.body.read)
       cb = user.compte_bancaires[0]
-      #cb.solde = response["connections"][0]["accounts"][0]["balance"]
-      cb.numero_compte = params["connections"]
+      cb.solde = params["connections"][0]["accounts"][0]["balance"]
+      #cb.numero_compte = params["connections"]
       #cb.nom_banque = params
       #cb.solde = params.length
       cb.save!
