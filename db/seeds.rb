@@ -34,9 +34,6 @@ cb = CompteBancaire.create!(
   user_id: user.id,
   nom_banque: 'BNP Paribas',
   numero_compte: '28203838301123',
-  code_acces: '20820821',
-  sepa: 'link',
-  rib: 'link',
   solde: 822.33,
   rythme: 3
   )
@@ -384,9 +381,6 @@ cb1 = CompteBancaire.create!(
   user_id: user1.id,
   nom_banque: 'Bank B',
   numero_compte: '28203838301123',
-  code_acces: '20820821',
-  sepa: 'link',
-  rib: 'link',
   solde: 822.33,
   rythme: 3
   )
