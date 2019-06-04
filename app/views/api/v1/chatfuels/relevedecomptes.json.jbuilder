@@ -21,7 +21,7 @@ if @cb[0] == nil
               json.buttons do
                 json.array! ["button"] do
                   json.type "web_url"
-                  json.url "https://www.ledepargneur.fr"
+                  json.url @url_bi
                   json.title "Ajouter ma Banque"
                 end
               end

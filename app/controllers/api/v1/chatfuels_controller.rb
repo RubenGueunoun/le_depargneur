@@ -1,7 +1,7 @@
 require 'csv'
 
 class Api::V1::ChatfuelsController < Api::V1::BaseController
-  before_action :find_user, only: [:relevedecomptes, :gestioncagnottes, :gestiondepargne, :gestionssr, :redirecttomenu, :profile]
+  before_action :find_user, only: [:relevedecomptes, :gestioncagnottes, :gestiondepargne, :gestionssr, :redirecttomenu, :profile, :parametres]
 
   def relevedecomptes
     @cb = CompteBancaire.where(user: @user)
@@ -14,6 +14,12 @@ class Api::V1::ChatfuelsController < Api::V1::BaseController
     @cagnottes.each do |cagnotte|
       @comptes << cagnotte
     end
+    if Rails.env == "development"
+      redirect_url = "http:%2F%2Flocalhost:3000%2Fconnected_account"
+    else
+      redirect_url = "https:%2F%2Fwww.ledepargneur.fr%2Fconnected_account"
+    end
+    @url_bi = "https://depargneur.biapi.pro/2.0/auth/webview/connect/select?client_id=#{ENV['BI_CLIENT_ID']}&redirect_uri=#{redirect_url}"
   end
 
   def gestioncagnottes
@@ -61,14 +67,27 @@ class Api::V1::ChatfuelsController < Api::V1::BaseController
 
   def parametres
     @message = ["message"]
+    if Rails.env == "development"
+      redirect_url = "http:%2F%2Flocalhost:3000%2Fconnected_account"
+    else
+      redirect_url = "https:%2F%2Fwww.ledepargneur.fr%2Fconnected_account"
+    end
+    if @user.compte_bancaires.count == 0
+      titre_bi = "Ajouter ma Banque"
+      url_bi = "https://depargneur.biapi.pro/2.0/auth/webview/connect/select?client_id=#{ENV['BI_CLIENT_ID']}&redirect_uri=#{redirect_url}"
+    else
+      titre_bi = "Actualiser ma Banque"
+      bi_token = @user.bi_token
+      url_bi = "https://depargneur.biapi.pro/2.0/auth/webview/accounts?client_id=#{ENV['BI_CLIENT_ID']}&redirect_uri=#{redirect_url}##{bi_token}"
+    end
     @buttons = [
       {
         url: "https://www.ledepargneur.fr",
         title: "Mon Profile",
       },
       {
-        url: "https://www.ledepargneur.fr",
-        title: "Ajouter ma Banque",
+        url: url_bi,
+        title: titre_bi,
       },
       {
         block_names: ["pause"],
