@@ -23,6 +23,21 @@ class Budgea::WebhooksController < Budgea::BaseController
         statut: "connected",
         )
 
+      params["connections"][0]["accounts"][i]["transactions"].each do |transaction|
+        if transaction["new"]
+          Operation.create! (
+            compte_bancaire_id: cb.id,
+            date: transaction["date"],
+            categorie: transaction["id_category"],
+            libelle: transaction["simplified_wording"],
+            montant: transaction["value"],
+            depargne: false,
+            bi_id: transaction["id"]
+            )
+        else
+        end
+      end
+
     end
   end
 
