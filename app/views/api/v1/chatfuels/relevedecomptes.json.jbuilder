@@ -23,6 +23,7 @@ if @cb[0] == nil
                   json.type "web_url"
                   json.url @url_bi
                   json.title "Ajouter ma Banque"
+                  json.webview_height_ratio "full"
                 end
               end
             end
@@ -80,7 +81,7 @@ else
                   json.array! [compte] do
                     json.type "web_url"
                     json.url "https://www.ledepargneur.fr/show_cagnotte?cagnotte_id=#{compte.id}&messenger user id=#{compte.user.messenger_id}"
-                    json.title "Cagnotte \"#{compte.objectif}\""
+                    json.title "💰 #{compte.objectif}"
                     json.webview_height_ratio "tall"
                     json.messenger_extensions true
                   end

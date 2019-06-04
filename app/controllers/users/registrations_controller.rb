@@ -38,6 +38,13 @@ class Users::RegistrationsController < Devise::RegistrationsController
         end
       end
       CSV.open(filepath, 'wb', csv_options) { |csv| token_list.each { |tok| csv << [tok[:name], tok[:used]] } }
+      Cagnotte.create!(
+        user_id: current_user.id,
+        genre: 'depargne',
+        montant: 0,
+        objectif: 'precaution',
+        somme: 0
+        )
     end
   end
 
