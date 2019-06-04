@@ -2,7 +2,7 @@ class Api::V1::BaseController < ActionController::API
   # acts_as_token_authentication_handler_for User
   include Pundit
 
-  after_action :verify_authorized, except: [:index, :relevedecomptes, :gestioncagnottes, :gestiondepargne, :gestionssr, :menuquickreplies, :redirecttomenu, :veriftoken, :parametres, :synchronized_data]
+  after_action :verify_authorized, except: [:index, :relevedecomptes, :gestioncagnottes, :gestiondepargne, :gestionssr, :menuquickreplies, :redirecttomenu, :veriftoken, :parametres]
   after_action :verify_policy_scoped, only: :index
 
   rescue_from StandardError,                with: :internal_server_error

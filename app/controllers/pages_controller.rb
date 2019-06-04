@@ -2,7 +2,7 @@ require 'ostruct'
 require 'json'
 
 class PagesController < ApplicationController
-  skip_before_action :authenticate_user!, only: [:home, :token_already_used, :connected_account, :synchronized_data]
+  skip_before_action :authenticate_user!, only: [:home, :token_already_used, :connected_account]
 
   def home
   end

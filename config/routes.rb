@@ -34,6 +34,7 @@ Rails.application.routes.draw do
 
   namespace :budgea, defaults: { format: :json } do
     post 'synchronized_data', to: 'webhooks#synchronized_data'
+    post 'daily_update_data', to: 'webhooks#daily_update_data'
   end
 
 
