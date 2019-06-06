@@ -52,7 +52,7 @@ else
             json.array! @comptes do |compte|
               if compte.class == CompteBancaire
                 json.title "#{compte.solde} €"
-                json.image_url "https://res.cloudinary.com/dyvlvy5co/image/upload/v1549896005/university-solid.png"
+                json.image_url "https://res.cloudinary.com/dyvlvy5co/image/upload/v1557927419/bank.png"
                 json.subtitle "Mis à jour #{compte.updated_at.to_date}"
                 json.default_action do
                   json.type "web_url"
@@ -70,7 +70,7 @@ else
                 end
               else
                 json.title "#{compte.montant} €"
-                json.image_url "https://res.cloudinary.com/dyvlvy5co/image/upload/v1549896001/piggy-bank-solid.png"
+                json.image_url "https://res.cloudinary.com/dyvlvy5co/image/upload/v1559811862/piggy-bank.png"
                 json.subtitle "Mis à jour #{compte.updated_at.to_date}"
                 json.default_action do
                   json.type "web_url"

@@ -9,10 +9,10 @@ json.messages do
           json.array! ["message","mes"] do |m|
             if m == "message"
               json.title "Paramétre ta dépargne"
-              json.image_url "https://res.cloudinary.com/dyvlvy5co/image/upload/v1551361347/pay.png"
+              json.image_url "https://res.cloudinary.com/dyvlvy5co/image/upload/v1559811767/wallet.png"
             else
               json.title "Configure tes règles comme tu veux"
-              json.image_url "https://res.cloudinary.com/dyvlvy5co/image/upload/v1551361347/pay.png"
+              json.image_url "https://res.cloudinary.com/dyvlvy5co/image/upload/v1559811667/salary_1.png"
               json.subtitle "Et met de côté à chacune de tes dépenses"
               json.default_action do
                 json.type "web_url"
