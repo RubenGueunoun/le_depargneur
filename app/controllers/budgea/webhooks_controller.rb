@@ -19,6 +19,7 @@ class Budgea::WebhooksController < Budgea::BaseController
         iban: params["connections"][0]["accounts"][i]["iban"],
         nom: params["connections"][0]["accounts"][i]["name"],
         statut: "connected",
+        last_update: params["connections"][0]["last_update"]
         )
       params["connections"][0]["accounts"][i]["transactions"].each do |transaction|
         if transaction["new"]

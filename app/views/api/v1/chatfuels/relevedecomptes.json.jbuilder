@@ -53,7 +53,7 @@ else
               if compte.class == CompteBancaire
                 json.title "#{compte.solde} €"
                 json.image_url "https://res.cloudinary.com/dyvlvy5co/image/upload/v1557927419/bank.png"
-                json.subtitle "Mis à jour #{compte.updated_at.to_date}"
+                json.subtitle "Mis à jour #{compte.last_update.to_date}"
                 json.default_action do
                   json.type "web_url"
                   json.url "www.ledepargneur.fr"
@@ -70,7 +70,15 @@ else
                 end
               else
                 json.title "#{compte.montant} €"
-                json.image_url "https://res.cloudinary.com/dyvlvy5co/image/upload/v1559811862/piggy-bank.png"
+                if compte.genre == "depargne"
+                  if compte.montant == 0
+                    json.image_url "https://res.cloudinary.com/dyvlvy5co/image/upload/v1559816129/safebox.png"
+                  else
+                    json.image_url "https://res.cloudinary.com/dyvlvy5co/image/upload/v1559816124/safebox_1.png"
+                  end
+                else
+                  json.image_url "https://res.cloudinary.com/dyvlvy5co/image/upload/v1559811862/piggy-bank.png"
+                end
                 json.subtitle "Mis à jour #{compte.updated_at.to_date}"
                 json.default_action do
                   json.type "web_url"
