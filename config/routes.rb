@@ -17,6 +17,7 @@ Rails.application.routes.draw do
       get 'redirecttomenu', to: 'chatfuels#redirecttomenu'
       get 'veriftoken', to: 'chatfuels#veriftoken'
       get 'parametres', to: 'chatfuels#parametres'
+      get 'gestionpause', to: 'chatfuels#gestionpause'
       resources :leads, only: [:create]
     end
   end

@@ -1,7 +1,7 @@
 require 'csv'
 
 class Api::V1::ChatfuelsController < Api::V1::BaseController
-  before_action :find_user, only: [:relevedecomptes, :gestioncagnottes, :gestiondepargne, :gestionssr, :redirecttomenu, :profile, :parametres]
+  before_action :find_user, only: [:relevedecomptes, :gestioncagnottes, :gestiondepargne, :gestionssr, :redirecttomenu, :profile, :parametres, :gestionpause]
 
   def relevedecomptes
     @cb = CompteBancaire.where(user: @user)
@@ -91,9 +91,15 @@ class Api::V1::ChatfuelsController < Api::V1::BaseController
       },
       {
         block_names: ["pause"],
-        title: "Mettre en Pause",
+        title: @user.pause ? "Redémarrer" : "Mettre en Pause",
       }
     ]
+  end
+
+  def gestionpause
+    @user.pause ? @user.pause = false : @user.pause = true
+    @user.save!
+    @message = ['message']
   end
 
   private

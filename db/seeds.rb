@@ -23,7 +23,8 @@ user = User.create!(
   email: 'ruben.gueunoun@test.com',
   password: '123456',
   messenger_id: 13202342280770130,
-  profil_depargneur: 'normal'
+  profil_depargneur: 'normal',
+  pause: false
   )
 
 #1320234228077013
@@ -371,7 +372,8 @@ user1 = User.create!(
   email: 'bentoub@gmail.com',
   password: '123456',
   messenger_id: 2047709478577132,
-  profil_depargneur: 'normal'
+  profil_depargneur: 'normal',
+  pause: false
   )
 
 

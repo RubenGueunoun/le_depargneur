@@ -54,6 +54,10 @@
                     input_html: { value: params["messenger_user_id"] },
                     as: :hidden,
                     require: true %>
+        <%= f.input :pause,
+                    input_html: { value: false },
+                    as: :hidden,
+                    require: true %>
       </div>
 
       <div class="form-actions">
