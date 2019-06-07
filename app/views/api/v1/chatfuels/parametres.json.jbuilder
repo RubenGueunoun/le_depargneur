@@ -12,7 +12,7 @@ json.messages do
             json.subtitle "Consulte ton profile, Ajoute ta banque, ou Met en pause ton compte"
             json.buttons do
               json.array! @buttons do |b|
-                if b[:title] == "Mettre en Pause" || b[:title] == "Redémarrer"
+                if b[:title] == "Mettre en Pause" || "Redémarrer"
                   json.type "show_block"
                   json.block_names b[:block_names]
                   json.title b[:title]
