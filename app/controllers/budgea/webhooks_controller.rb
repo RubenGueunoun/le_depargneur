@@ -25,7 +25,7 @@ class Budgea::WebhooksController < Budgea::BaseController
         if transaction["new"]
           Operation.create!(
             compte_bancaire_id: cb.id,
-            date: transaction["date"],
+            #date: transaction["date"],
             categorie: transaction["id_category"],
             libelle: transaction["simplified_wording"],
             montant: transaction["value"],
