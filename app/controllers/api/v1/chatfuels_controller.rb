@@ -82,8 +82,8 @@ class Api::V1::ChatfuelsController < Api::V1::BaseController
     end
     @buttons = [
       {
-        url: "https://www.ledepargneur.fr",
-        title: "Mon Profile",
+        url: "https://www.ledepargneur.fr/users/edit",
+        title: "Modifier Infos Profile",
       },
       {
         url: url_bi,
