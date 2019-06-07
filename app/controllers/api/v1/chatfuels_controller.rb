@@ -97,7 +97,11 @@ class Api::V1::ChatfuelsController < Api::V1::BaseController
   end
 
   def gestionpause
-    @user.pause ? @user.pause = false : @user.pause = true
+    if @user.pause
+      @user.pause = false
+    else
+      @user.pause = true
+    end
     @user.save!
     @message = ['message']
   end
