@@ -10,7 +10,7 @@ class Budgea::WebhooksController < Budgea::BaseController
     else
       render json: {}, status: :ok
       i = params["connections"][0]["accounts"].index { |account| account["name"]. == "Compte chèque"}
-      if user.compte_bancaires.nil?
+      if user.compte_bancaires[0].nil?
         cb = CompteBancaire.create!(
           user_id: user.id,
           nom_banque: params["connections"][0]["bank"]["name"],
