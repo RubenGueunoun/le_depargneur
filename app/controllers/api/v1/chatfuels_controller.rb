@@ -77,13 +77,13 @@ class Api::V1::ChatfuelsController < Api::V1::BaseController
       url_bi = "https://depargneur.biapi.pro/2.0/auth/webview/connect/select?client_id=#{ENV['BI_CLIENT_ID']}&redirect_uri=#{redirect_url}"
     else
       titre_bi = "Actualiser ma Banque"
-      bi_token = @user.bi_token
-      url_bi = "https://depargneur.biapi.pro/2.0/auth/webview/accounts?client_id=#{ENV['BI_CLIENT_ID']}&redirect_uri=#{redirect_url}##{bi_token}"
+      user_token = @user.bi_token.split(' ')[-1]
+      url_bi = "https://depargneur.biapi.pro/2.0/auth/webview/accounts?client_id=#{ENV['BI_CLIENT_ID']}&redirect_uri=#{redirect_url}##{user_token}"
     end
     @buttons = [
       {
         url: "https://www.ledepargneur.fr/users/edit",
-        title: "Modifier Infos Profile",
+        title: "Modifier MDP",
       },
       {
         url: url_bi,
