@@ -44,6 +44,10 @@ class Budgea::WebhooksController < Budgea::BaseController
             )
         end
       end
+
+      unless user.compte_bancaires[0].created_at.strftime("%B %d, %Y") == Date.today.strftime("%B %d, %Y")
+        ArrondiJob.perform_later(user.id)
+      end
     end
   end
 

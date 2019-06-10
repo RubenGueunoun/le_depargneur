@@ -24,7 +24,8 @@ user = User.create!(
   password: '123456',
   messenger_id: 1320234228077013,
   profil_depargneur: 'normal',
-  pause: false
+  pause: false,
+  admin: true
   )
 
 #1320234228077013
