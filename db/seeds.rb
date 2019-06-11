@@ -22,7 +22,7 @@ user = User.create!(
   prenom: 'Ruben',
   email: 'ruben.gueunoun@test.com',
   password: '123456',
-  messenger_id: 13202342280770130,
+  messenger_id: 1320234228077013,
   profil_depargneur: 'normal',
   pause: false,
   admin: true
@@ -32,123 +32,123 @@ user = User.create!(
 
 # Compte bancaire
 
-#cb = CompteBancaire.create!(
-#  user_id: user.id,
-#  nom_banque: 'BNP Paribas',
-#  numero_compte: '28203838301123',
-#  solde: 822.33,
-#  rythme: 3
-#  )
+cb = CompteBancaire.create!(
+  user_id: user.id,
+  nom_banque: 'BNP Paribas',
+  numero_compte: '28203838301123',
+  solde: 2849.33,
+  rythme: 3
+  )
 
-#op1 = Operation.new(
-#  compte_bancaire_id: cb.id,
-#  date: '12/01/2018',
-#  categorie: 'Restaurant',
-#  libelle: 'La villa',
-#  montant: -55,
-#  depargne: true,
-#  )
-#op1.save!
+op1 = Operation.new(
+  compte_bancaire_id: cb.id,
+  date: '12/01/2018',
+  categorie: 'Restaurant',
+  libelle: 'La villa',
+  montant: -55,
+  depargne: true,
+  )
+op1.save!
 
-#op2 = Operation.new(
-#  compte_bancaire_id: cb.id,
-#  date: '10/01/2018',
-#  categorie: 'Restaurant',
-#  libelle: 'Villa Rocca',
-#  montant: -23.10,
-#  depargne: true,
-#  )
-#op2.save!
+op2 = Operation.new(
+  compte_bancaire_id: cb.id,
+  date: '10/01/2018',
+  categorie: 'Restaurant',
+  libelle: 'Villa Rocca',
+  montant: -23.10,
+  depargne: true,
+  )
+op2.save!
 
-#op3 = Operation.new(
-#  compte_bancaire_id: cb.id,
-#  date: '09/01/2018',
-#  categorie: 'Restaurant',
-#  libelle: 'Le petit Nice',
-#  montant: -200,
-#  depargne: true,
-#  )
-#op3.save!
+op3 = Operation.new(
+  compte_bancaire_id: cb.id,
+  date: '09/01/2018',
+  categorie: 'Restaurant',
+  libelle: 'Le petit Nice',
+  montant: -200,
+  depargne: true,
+  )
+op3.save!
 
-#op4 = Operation.new(
-#  compte_bancaire_id: cb.id,
-#  date: '23/01/2018',
-#  categorie: 'Restaurant',
-#  libelle: 'Otto',
-#  montant: -43.50,
-#  depargne: true,
-#  )
-#op4.save!
+op4 = Operation.new(
+  compte_bancaire_id: cb.id,
+  date: '23/01/2018',
+  categorie: 'Restaurant',
+  libelle: 'Otto',
+  montant: -43.50,
+  depargne: true,
+  )
+op4.save!
 
-#op5 = Operation.new(
-#  compte_bancaire_id: cb.id,
-#  date: '01/01/2018',
-#  categorie: 'Transport',
-#  libelle: 'Uber',
-#  montant: -12.37,
-#  depargne: true,
-#  )
-#op5.save!
+op5 = Operation.new(
+  compte_bancaire_id: cb.id,
+  date: '01/01/2018',
+  categorie: 'Transport',
+  libelle: 'Uber',
+  montant: -12.37,
+  depargne: true,
+  )
+op5.save!
 
-#op6 = Operation.new(
-#  compte_bancaire_id: cb.id,
-#  date: '14/01/2018',
-#  categorie: 'Transport',
-#  libelle: 'Uber',
-#  montant: -9.70,
-#  depargne: true,
-#  )
-#op6.save!
+op6 = Operation.new(
+  compte_bancaire_id: cb.id,
+  date: '14/01/2018',
+  categorie: 'Transport',
+  libelle: 'Uber',
+  montant: -9.70,
+  depargne: true,
+  )
+op6.save!
 
-#op7 = Operation.new(
-#  compte_bancaire_id: cb.id,
-#  date: '29/01/2018',
-#  categorie: 'Transport',
-#  libelle: 'SNCF',
-#  montant: -79.99,
-#  depargne: true,
-#  )
-#op7.save!
+op7 = Operation.new(
+  compte_bancaire_id: cb.id,
+  date: '29/01/2018',
+  categorie: 'Transport',
+  libelle: 'SNCF',
+  montant: -79.99,
+  depargne: true,
+  )
+op7.save!
 
-#op11 = Operation.new(
-#  compte_bancaire_id: cb.id,
-#  date: '30/01/2018',
-#  categorie: 'Virement',
-#  libelle: 'Cadeau Papa',
-#  montant: 400,
-#  depargne: true,
-#  )
-#op11.save!
+op11 = Operation.new(
+  compte_bancaire_id: cb.id,
+  date: '30/01/2018',
+  categorie: 'Virement',
+  libelle: 'Cadeau Papa',
+  montant: 400,
+  depargne: true,
+  )
+op11.save!
 
-#op8 = Operation.new(
-#  compte_bancaire_id: cb.id,
-#  date: '19/01/2018',
-#  categorie: 'Sorties',
-#  libelle: 'R2',
-#  montant: -50,
-#  depargne: true,
-#  )
-#op8.save!
+op8 = Operation.new(
+  compte_bancaire_id: cb.id,
+  date: '19/01/2018',
+  categorie: 'Sorties',
+  libelle: 'R2',
+  montant: -50,
+  depargne: true,
+  )
+op8.save!
 
-#op9 = Operation.new(
-#  compte_bancaire_id: cb.id,
-#  date: '13/01/2018',
-#  categorie: 'Sorties',
-#  libelle: 'Son des guitares',
-#  montant: -20,
-#  depargne: true,
-#  )
-#op9.save!
+op9 = Operation.new(
+  compte_bancaire_id: cb.id,
+  date: '13/01/2018',
+  categorie: 'Sorties',
+  libelle: 'Son des guitares',
+  montant: -20,
+  depargne: true,
+  )
+op9.save!
 
-#op10 = Operation.new(
-#  compte_bancaire_id: cb.id,
-#  date: '06/01/2018',
-#  categorie: 'Sorties',
-#  libelle: 'Comptoir d\'endoume',
-#  montant: -30,
-#  depargne: true,
-#  )
-#op10.save!
+op10 = Operation.new(
+  compte_bancaire_id: cb.id,
+  date: '06/01/2018',
+  categorie: 'Sorties',
+  libelle: 'Comptoir d\'endoume',
+  montant: -30,
+  depargne: true,
+  )
+op10.save!
 
 
 # Cagnottes
