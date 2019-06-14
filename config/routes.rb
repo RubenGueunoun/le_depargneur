@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  mount ForestLiana::Engine => '/forest'
   devise_for :users, controllers: {
            :sessions => "users/sessions",
            :registrations => "users/registrations" }
